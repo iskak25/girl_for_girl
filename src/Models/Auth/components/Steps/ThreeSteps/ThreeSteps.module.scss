@@ -1,0 +1,35 @@
+@use '../../../../../assest/mixin/all.scss' as all;
+.container {
+  padding: 20px 0;
+  display: flex;
+  .button {
+    .btn {
+      margin-left: 66px;
+      @include all.button(54px, 22px, transparent, 15px);
+      border: none;
+      @include all.text('' Inter '', 'normal', 500, 18px, #000);
+    }
+  }
+  .item {
+    margin-left: 600px;
+    width: 720px;
+    display: flex;
+    justify-content: space-around;
+    .list_activ {
+      width: 229px;
+      height: 10px;
+      /* colors/accent color */
+
+      background-color: #ff99c8;
+      border-radius: 5px;
+    }
+    .list {
+      width: 229px;
+      height: 10px;
+      /* colors/accent color */
+
+      background-color: #6d6d6d;
+      border-radius: 5px;
+    }
+  }
+}

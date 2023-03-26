@@ -1,0 +1,58 @@
+@use '../../assest/mixin/all.scss' as all;
+fieldset {
+  border: none !important;
+}
+li {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border: none;
+}
+.rootContainer {
+  box-shadow: none;
+  background-color: transparent;
+  text-decoration: none;
+  .css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input.css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input.css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input {
+    display: flex;
+    align-items: center;
+  }
+
+  .link {
+    @include all.text('Poppins', 'normal', 400, 18px, #fff);
+    pointer-events: none;
+  }
+  .link_activ {
+    @include all.text('Poppins', 'normal', 400, 18px, #000);
+  }
+  .select {
+    display: flex;
+    align-items: center;
+    justify-content: content;
+    width: 107px;
+    height: 53px;
+    border: none;
+  }
+
+  .language {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .button {
+    @include all.button(211px, 59px, #000, 15px);
+    @include all.text('Poppins', 'normal', 400, 18px, #fbfbfb);
+    border: 1px solid #fbfbfb;
+  }
+  .button_activ {
+    @include all.button(211px, 59px, #db66e4, 15px);
+    @include all.text('Poppins', 'normal', 400, 18px, #fbfbfb);
+    border: none;
+  }
+}
+
+// body {
+//   background-color: #c4c4c4;
+// }

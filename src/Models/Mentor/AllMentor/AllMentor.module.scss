@@ -1,0 +1,43 @@
+@use '../../../assest/mixin/all.scss' as all;
+.container {
+  margin: 0 auto;
+  width: 1440px;
+  .content {
+    width: 1366px;
+    margin: 0 auto;
+    .content_h3 {
+      margin: 60px 0 48px;
+      @include all.text('Poppins', 'normal', 600, 2em, #000);
+    }
+    .item {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 11px;
+      grid-row-gap: 10px;
+      $img: '../../../assest/img/0.0.jpg';
+      .list {
+        width: 100%;
+        background-image: url($img);
+        width: 678px;
+        height: 484px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        .listOne {
+          margin-left: 25px;
+          margin-top: 31px;
+          @include all.text('Poppins', 'normal', 400, 2em, #fbfbfb);
+        }
+        .listTwo {
+          @include all.displayCenter();
+          .listTwo_btn {
+            @include all.text('Poppins', 'normal', 500, 1em, #fbfbfb);
+            @include all.button(217px, 56px, #c192ee, 10px);
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}

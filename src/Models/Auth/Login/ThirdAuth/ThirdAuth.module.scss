@@ -1,0 +1,34 @@
+.third_container {
+  display: flex;
+  .third {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 220px;
+    .select {
+      margin-top: 21px;
+      width: 740px;
+      height: 60px;
+      border-radius: 10px;
+      border: solid #6d6d6d;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      /* identical to box height */
+
+      color: #6d6d6d;
+      background: transparent;
+      &:hover {
+        background-color: #d565de;
+        color: #000000;
+        border: none;
+      }
+    }
+    .third_button {
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@use '../../../../assest//mixin/all.scss' as all;
+.offer_container {
+  @include all.displayCenter();
+  margin-top: 50px;
+  // margin: 50px;
+  // margin: 0 auto;
+  // width: 100%;
+  width: 1440px;
+  background-color: #fbfbfb;
+  .container {
+    // margin-bottom: 30px;
+    .header {
+      .header_h3 {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        letter-spacing: -0.05em;
+      }
+    }
+    .content {
+      // display: flex;
+      .content_item {
+        box-shadow: none !important;
+        // display: flex;
+        margin-bottom: 12px;
+        width: 1366px;
+        box-shadow: 0px 6px 16px rgba(74, 58, 255, 0.19);
+        border-radius: 14px;
+        .h2 {
+          width: 634px;
+          font-family: 'DM Sans';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 28px;
+
+          color: #170f49;
+        }
+        .p {
+          width: 1000px;
+          font-family: 'DM Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 30px;
+
+          color: #6f6c90;
+        }
+      }
+    }
+  }
+}

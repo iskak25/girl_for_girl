@@ -1,0 +1,28 @@
+@use '../../../assest/mixin/all.scss' as all;
+
+.container {
+  margin: 0 auto;
+  width: 1440px;
+  height: 720px;
+  @include all.displayCenter();
+  .content {
+    background-image: url('../../../assest/img/forums.jpg');
+    width: 1220px;
+    height: 651px;
+    @include all.displayJustify(center);
+    align-items: flex-end;
+    //  flex-direction: column;
+    .item {
+      margin-bottom: 80px;
+      .item_h3 {
+        @include all.text('Poppins', 'normal', 700, 3em, #fff);
+        margin-bottom: 17px;
+      }
+      .item_button {
+        @include all.text('Poppins', 'normal', 500, 1.125em, #fbfbfb);
+        @include all.button(217px, 56px, #c192ee, 10px);
+        border: none;
+      }
+    }
+  }
+}

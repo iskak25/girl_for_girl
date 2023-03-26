@@ -1,0 +1,20 @@
+@use '../../../assest/mixin/all.scss' as all;
+
+.container {
+  margin-top: -100px;
+  background-color: #000;
+  height: 100vh;
+  .content {
+    padding-top: 100px;
+    @include all.displayCenter();
+    .img {
+      width: 309.89px;
+      height: 502.52px;
+    }
+    .button {
+      @include all.button(217px, 57px, #ffffff, 10px);
+      @include all.text('Poppins', 'normal', 500, 18px, #000000);
+      border: none;
+    }
+  }
+}

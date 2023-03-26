@@ -1,0 +1,25 @@
+.loginLogo {
+  margin-left: 37px;
+  display: flex;
+  .loginLogo_header {
+    .loginLogo_girl {
+      margin-left: 156px;
+      h3 {
+        //   margin-left: 20px;
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 39px;
+
+        letter-spacing: -0.08em;
+
+        color: #000000;
+      }
+    }
+    .loginLogo_logo {
+      // margin-top: 40px;
+    }
+  }
+}

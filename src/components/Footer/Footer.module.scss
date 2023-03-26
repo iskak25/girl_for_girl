@@ -1,0 +1,57 @@
+@use '../../assest/mixin/all.scss' as all;
+.container {
+  margin: 0 auto;
+  width: 1440px;
+  .content {
+    height: 244px;
+    display: grid;
+    grid-template-columns: 0.5fr 4fr;
+    grid-template-rows: 1fr;
+    .logo {
+      @include all.displayJustify(flex-start);
+      @include all.displayItems(center);
+
+      .img {
+      }
+    }
+    .right {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 4fr 0.1fr 4fr;
+      .right_content {
+        @include all.displayCenter();
+        @include all.displayJustify(space-between);
+
+        .text {
+          @include all.displayJustify(space-between);
+          width: 700px;
+
+          .text_p {
+            @include all.text('Poppins', 'normal', 500, 1em, #000);
+          }
+        }
+        .right_logo {
+          @include all.displayJustify(space-between);
+          width: 160px;
+          .right_logo_item {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+      .line {
+        .line_hr {
+          width: 100%;
+          background-color: #c192ee;
+          border: 1.5px solid #c192ee;
+          // transform: rotate(-0.04deg);
+        }
+      }
+      .end {
+        @include all.displayItems(center);
+
+        @include all.text('Poppins', 'normal', 400, 1em, #000);
+      }
+    }
+  }
+}

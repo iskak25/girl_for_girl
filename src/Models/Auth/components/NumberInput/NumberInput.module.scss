@@ -1,0 +1,35 @@
+@use '../../../../assest/mixin/all.scss' as all;
+.numberInput_text {
+  // margin-top: 80px;
+  p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 39px;
+
+    color: #000000;
+    span {
+      color: #7f3a85;
+    }
+  }
+}
+.numberInput_input {
+  // display: flex;
+  .input {
+    // @include all.onlyInput();
+    // border: none;
+    @include all.text('Poppins', 'normal', 500, 2em, #000);
+    display: flex;
+    text-align: center;
+  }
+  .input_activ {
+    @include all.onlyInput();
+    border: 1px solid #c192ee;
+  }
+}
+.btn {
+  @include all.authButton(763px, 62px);
+  @include all.text('Poppins', 'normal', 500, 1.125em, #fff);
+  margin-top: 80px;
+}

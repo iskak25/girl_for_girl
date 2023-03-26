@@ -1,0 +1,91 @@
+@use '../../../assest/mixin/all.scss' as all;
+.modal_activ {
+  pointer-events: all !important;
+  opacity: 1 !important;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+
+  .modal_content_activ {
+    transform: scale(1);
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 791px;
+    height: 658px;
+    //  transform: scale(0.5);
+    transition: 0.4s all !important;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 5fr;
+    .item_close {
+      display: flex;
+      justify-content: flex-end;
+      .close_icon {
+        width: 11px;
+        height: 11px;
+      }
+    }
+    .item {
+      display: grid;
+      grid-template-columns: 2fr 3fr 0.5fr;
+      grid-template-rows: 1fr;
+      grid-column-gap: 29px;
+      .item_list {
+        display: flex;
+        flex-direction: column;
+        .mentor_img {
+          width: 298px;
+          height: 387px;
+
+          border-radius: 10px;
+        }
+        .mentor_name {
+          @include all.text('Poppins', 'normal', 600, 2em, #000);
+        }
+        .mentor_deck {
+          @include all.text('Poppins', 'normal', 500, 24px, #000);
+        }
+        .mentor_icon {
+          margin: 17px;
+          width: 21.5px;
+          height: 21.5px;
+        }
+      }
+    }
+  }
+}
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+
+  .modal_content {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #000;
+    height: 40px;
+    width: 40px;
+    transform: scale(0.5);
+    transition: 0.4s all;
+  }
+}

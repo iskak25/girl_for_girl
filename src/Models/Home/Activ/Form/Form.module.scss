@@ -1,0 +1,80 @@
+@use '../../../../assest/mixin/all.scss' as all;
+.form_container {
+  background-color: #fbfbfb;
+  margin: 0 auto;
+  width: 1366px;
+  height: 461px;
+
+  border: 1px solid #db66e4;
+  border-radius: 15px;
+  .container {
+    // @include m.dcenter();
+    // flex-direction: column;
+    margin: 24px;
+
+    .header {
+      .header_h3 {
+        @include all.text('Poppins', 'normal', 600, 2em, #000);
+      }
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 320px;
+      grid-row-gap: 40px;
+      margin: 24px 0 24px;
+
+      .content_text {
+        .content_text__h3 {
+          @include all.text('Poppins', 'normal', 600, 1.5em, #000);
+          margin-bottom: 15px;
+        }
+
+        .content_text__input {
+          width: 450px;
+          height: 60px;
+
+          background: #ffffff;
+          box-shadow: 0px 4px 80px rgba(0, 0, 0, 0.05);
+          border-radius: 10px;
+          border: none;
+          ::placeholder {
+            position: relative;
+          }
+        }
+        .content_text_span {
+          position: absolute;
+          top: 2668px;
+          left: 1439px;
+        }
+        // &:after {
+        //   position: absolute;
+        //   content: 'Максимум 20 знаков';
+        //   @include all.text('Poppins', 'italic', 300, 11px, #000);
+        //   display: inline-block;
+        //   // top: 0;
+        //   // right: 0px;
+        //   // z-index: 1;
+        // }
+        // &:before {
+        //   content: 'Введите имя';
+        //   position: absolute;
+        //   top: 0;
+        //   left: 0;
+        //   z-index: 1;
+        //   color: #000;
+        // }
+      }
+    }
+    .button {
+      @include all.displayCenter();
+      .btn {
+        @include all.text('Poppins', 'normal', 600, 1.25em, #fbfbfb);
+        @include all.button(499px, 59px, #db66e4, 15px);
+        border: none;
+      }
+    }
+  }
+}

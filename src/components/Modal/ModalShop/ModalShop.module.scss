@@ -1,0 +1,151 @@
+@use '../../../assest/mixin/all.scss' as all;
+.modal_activ {
+  pointer-events: all !important;
+  opacity: 1 !important;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+
+  .modal_content_activ {
+    transform: scale(1);
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 1084px;
+    height: 709px;
+    //  transform: scale(0.5);
+    transition: 0.4s all !important;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 9fr;
+    .modal_container__close {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      grid-template-rows: 1fr;
+      grid-column-gap: 20px;
+      .item_img {
+        @include all.displayCenter();
+        flex-direction: column;
+        .item_img__img {
+          width: 286px;
+          height: 424px;
+        }
+        .item_img__p {
+          @include all.text('Poppins', 'normal', 700, 2em, #000);
+        }
+      }
+      .item_text {
+        @include all.displayCenter();
+        flex-direction: column;
+
+        min-width: 440px;
+        .text_heder {
+          width: 440px;
+          display: flex;
+          justify-content: space-between;
+          .text_heder_h3 {
+            @include all.text('Poppins', 'normal', 500, 2em, #000);
+          }
+          .text_heder_h2 {
+            @include all.text('Poppins', 'normal', 700, 2em, #000);
+          }
+        }
+        .text_center {
+          margin-top: 36px;
+          @include all.text('Poppins', 'normal', 400, 1.25em, #000);
+        }
+        .text_desck {
+          display: flex;
+          justify-content: space-between;
+          width: 440px;
+
+          .name {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .name_p {
+              @include all.text('Sanchez', 'normal', 400, 1.25em, #000);
+              margin-bottom: 20px;
+            }
+          }
+          .price {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            .price_p {
+              margin-bottom: 20px;
+              @include all.text(
+                'Sanchez',
+                'normal',
+                400,
+                1.25em,
+                rgba(0, 0, 0, 0.6)
+              );
+            }
+          }
+        }
+
+        .border {
+          display: flex;
+          justify-content: space-around;
+          width: 440px;
+          align-items: center;
+          justify-content: flex-start;
+          height: 60px;
+          border: 1px solid rgba(0, 0, 0, 0.3);
+          margin: 10px 0 0 0;
+          .border_img {
+            margin: 0 15px;
+          }
+          .border_p {
+            @include all.text('Sanchez', 'normal', 400, 1.125em, #000);
+          }
+        }
+        .item_btn {
+          @include all.button(282px, 48px, #db66e4, 10px);
+          @include all.text('Sanchez', 'normal', 400, 1.125em, #fff);
+          border: none;
+          margin-top: 36px;
+        }
+      }
+    }
+  }
+}
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+
+  .modal_content {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #000;
+    height: 40px;
+    width: 40px;
+    transform: scale(0.5);
+    transition: 0.4s all;
+  }
+}

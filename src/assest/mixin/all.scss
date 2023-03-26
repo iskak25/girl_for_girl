@@ -1,0 +1,60 @@
+@mixin text($font-family, $font-style, $font-weight, $font-size, $color) {
+  font-family: $font-family;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  color: $color;
+}
+@mixin button($width, $height, $background, $border-radius) {
+  width: $width;
+  height: $height;
+  background-color: $background;
+  border-radius: $border-radius;
+}
+@mixin container($width, $height, $background, $border-radius) {
+  width: $width;
+  height: $height;
+  background-color: $background;
+  border-radius: $border-radius;
+}
+@mixin displayCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin displayJustify($justify) {
+  display: flex;
+  justify-content: $justify;
+}
+
+@mixin displayItems($items) {
+  display: flex;
+  align-items: $items;
+}
+
+@mixin authButton($width, $height) {
+  width: $width;
+  height: $height;
+
+  background-color: #c192ee;
+  border-radius: 10px;
+  border: none;
+}
+
+@mixin authInput($width, $height, $background) {
+  width: $width;
+  height: $height;
+
+  background-color: $background;
+  border-radius: 10px;
+  box-shadow: 0px 4px 250px rgba(0, 0, 0, 0.05);
+}
+
+@mixin onlyInput() {
+  width: 118px;
+  height: 118px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 4px 250px rgba(0, 0, 0, 0.05);
+}

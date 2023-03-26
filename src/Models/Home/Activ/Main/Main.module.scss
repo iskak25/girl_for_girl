@@ -1,0 +1,100 @@
+@use '../../../../assest//mixin/all.scss' as all;
+
+.main {
+  margin: 0 auto;
+  width: 1370px;
+  .main_h3 {
+    @include all.text('Poppins', 'normal', 600, 2em, #000);
+    margin-bottom: 24px;
+  }
+  .main_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+    @media screen and (max-width: 768px) {
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 30px;
+      grid-row-gap: 20px;
+    }
+    @media screen and (max-width: 508px) {
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      grid-column-gap: 30px;
+      grid-row-gap: 20px;
+    }
+    .main_item {
+      @media screen and (max-width: 508px) {
+        width: 680px;
+        margin: 0 auto;
+      }
+      height: 216px;
+
+      background: #ffffff;
+
+      border: 3px solid #c192ee;
+      border-radius: 20px;
+      @include all.displayCenter();
+    }
+  }
+  .main_item__p__id {
+    position: relative;
+    &:after {
+      content: url(../../../../assest/img/main_icons.svg);
+      position: absolute;
+      top: -58px;
+      left: 380px;
+      z-index: 1;
+    }
+  }
+  .main_item__p {
+    margin: 0 29px;
+    text-align: center;
+    @include all.text('Poppins', 'normal', 400, 1.125em, #000);
+  }
+}
+
+// display: flex;
+// justify-content: space-around;
+// .main_left {
+//   width: 327px;
+//   //  @include m.dcenter();
+//   //  flex-direction: column;
+//   .main_left_h2 {
+//     @include m.maintext(500, 64px, 77px);
+//   }
+
+//   .main_left_text {
+//     margin-top: 25px;
+//     background: #ffc8dd;
+//     padding: 15px 22px;
+//     border-radius: 20px;
+//     width: 277px;
+
+//     .main_left_p {
+//       @include m.maintext(400, 18px, 22px);
+//     }
+//   }
+// }
+// .main_right {
+//   width: 1039px;
+//   .main_right_text {
+//     padding: 15px 18px;
+
+//     background: #d0f4de;
+//     border-radius: 20px;
+//     .main_right_p {
+//       @include m.maintext(400, 32px, 32px);
+//     }
+//   }
+//   .main_right_imgs {
+//     .main_right_img {
+//     }
+//   }
+// }

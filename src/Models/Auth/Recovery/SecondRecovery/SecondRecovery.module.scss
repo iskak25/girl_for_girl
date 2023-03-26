@@ -1,0 +1,12 @@
+@use '../../../../assest/mixin/all.scss' as all;
+.container {
+  .p {
+  }
+  .button {
+    .btn {
+      @include all.authButton(763px, 62px);
+      @include all.text('Poppins', 'normal', 500, 1.125em, #fff);
+      margin-top: 80px;
+    }
+  }
+}
