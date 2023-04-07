@@ -1,10 +1,11 @@
 import React from 'react'
 import activRootStyle from './ActivRoot.module.scss'
-import Content from './Content/Content'
-import Header from './Header/Header'
-import Main from './Main/Main'
-import Form from './Form/Form'
-import WeOffer from './WeOffer/WeOffer'
+import Content from '../Content/Content'
+import Header from '../Header/Header'
+// import Main from '../Main/Main'
+import Form from '../Form/Form'
+import WeOffer from '../WeOffer/WeOffer'
+import Main from '../Main/Main'
 
 const ActivRoot = () => {
   return (

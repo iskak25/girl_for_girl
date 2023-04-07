@@ -50,10 +50,10 @@
           border-radius: 10px;
         }
         .mentor_name {
-          @include all.text('Poppins', 'normal', 600, 2em, #000);
+          @include all.text('Poppins', sans-serif, 'normal', 600, 2em, #000);
         }
         .mentor_deck {
-          @include all.text('Poppins', 'normal', 500, 24px, #000);
+          @include all.text('Poppins', sans-serif, 'normal', 500, 24px, #000);
         }
         .mentor_icon {
           margin: 17px;

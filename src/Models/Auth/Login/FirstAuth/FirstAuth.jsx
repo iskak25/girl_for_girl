@@ -154,7 +154,7 @@ const FirstAuth = (props) => {
               onChange={(e) => setPassword(e.target.value)}
               className={firstStyle.input_small}
               type="password"
-              placeholder="пароль вашего e-mail"
+              placeholder="пароль"
               name="password"
               value={password}
             />

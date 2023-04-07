@@ -36,7 +36,7 @@ const signin = async (userData) => {
 const activUser = async (code) => {
   console.log(typeof code)
   const response = await axios.get(
-    `${Endpoints.BASE_URL.url}/api/v1/auth/active/${code}`,
+    `${Endpoints.BASE_URL.url}${Endpoints.AUTH.ACTIV}${code}`,
     code,
   )
   return response.data

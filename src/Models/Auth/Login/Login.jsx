@@ -9,7 +9,7 @@ import ThreeSteps from '../components/Steps/ThreeSteps/ThreeSteps'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Login = () => {
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState(0) 
   const onNext = () => setStep(step + 1)
   const onPrevious = () => setStep(step - 1)
   const pages = [<FirstAuth onNext={onNext} />, <SecondAuth onNext={onNext} />]
@@ -26,7 +26,9 @@ const Login = () => {
             <div className={loginStyle.login_logo}>
               <LoginLogo />
             </div>
-            <div className={loginStyle.item}>{pages[step]}</div>
+            <div style={{ marginTop: '67px' }} className={loginStyle.item}>
+              {pages[step]}
+            </div>
           </div>
         </div>
       </div>

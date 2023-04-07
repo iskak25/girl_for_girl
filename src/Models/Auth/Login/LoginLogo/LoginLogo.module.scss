@@ -1,9 +1,13 @@
 .loginLogo {
-  margin-left: 37px;
+  // margin-left: 37px;
   display: flex;
   .loginLogo_header {
     .loginLogo_girl {
       margin-left: 156px;
+      .loginLogo_girl_img {
+        width: 377px;
+        height: 602px;
+      }
       h3 {
         //   margin-left: 20px;
         text-align: left;

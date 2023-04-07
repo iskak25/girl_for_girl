@@ -1,10 +1,10 @@
-@use '../../../../assest//mixin/all.scss' as all;
+@use '../../../../assest/mixin/all.scss' as all;
 
 .main {
   margin: 0 auto;
   width: 1370px;
   .main_h3 {
-    @include all.text('Poppins', 'normal', 600, 2em, #000);
+    @include all.text('Poppins', sans-serif, 'normal', 600, 2em, #000);
     margin-bottom: 24px;
   }
   .main_container {
@@ -44,19 +44,24 @@
     }
   }
   .main_item__p__id {
+    margin: 0 29px;
+    text-align: center;
+    @include all.text('Poppins', sans-serif, 'normal', 400, 1.125em, #000);
     position: relative;
     &:after {
       content: url(../../../../assest/img/main_icons.svg);
+      // width: 25px;
+      // height: 25px;
       position: absolute;
-      top: -58px;
-      left: 380px;
+      top: -20px;
+      left: 370px;
       z-index: 1;
     }
   }
   .main_item__p {
     margin: 0 29px;
     text-align: center;
-    @include all.text('Poppins', 'normal', 400, 1.125em, #000);
+    @include all.text('Poppins', sans-serif, 'normal', 400, 1.125em, #000);
   }
 }
 

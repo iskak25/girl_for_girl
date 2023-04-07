@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
 import Text from '../../components/Text/Text'
 import newPasswordStyle from '../NewPassword/NewPassword.module.scss'
+import firstStyle from '../../Login/FirstAuth/FirstAuth.module.scss'
+import { newPassword } from '../../../../redux/features/recovery/recoverySlice'
 
 const NewPassword = () => {
+  const dispatch = useDispatch()
+  const [password, setPassword] = useState('')
+  const [confirmPass, setConfirmPass] = useState('')
+  const vales = {
+    password,
+    confirmPass,
+  }
+  const userData = JSON.stringify(vales, null, 2)
   return (
     <>
       <div className={newPasswordStyle.newPassword_container}>
@@ -14,16 +25,43 @@ const NewPassword = () => {
             Придумайте новый пароль
           </h3>
           <div className={newPasswordStyle.newPassword_input}>
-            <Input type={'password'} placeholder={'новый пароль'} />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              className={newPasswordStyle.input_big}
+              type="password"
+              placeholder="новый пароль"
+              value={password}
+              name="phoneNumber"
+            />
           </div>
           <div className={newPasswordStyle.newPassword_input}>
-            <Input type={'password'} placeholder={'Придумайте новый пароль'} />
+            <input
+              onChange={(e) => setConfirmPass(e.target.value)}
+              className={newPasswordStyle.input_big}
+              type="password"
+              placeholder="Придумайте новый пароль"
+              value={confirmPass}
+              name="phoneNumber"
+            />
           </div>
-          <Link to="/">
-            <Button value={'Восстановить'} />
-          </Link>
-          <Text p={'вспомнили пароль? '} a={'войти'} />
-          <Text p={'нет аккаунта? '} a={'зарегистрироваться   '} />
+          {/* <Link to="/"> */}
+          <button
+            className={newPasswordStyle.btn}
+            onClick={() => dispatch(newPassword(userData))}
+          >
+            Восстановить
+          </button>
+          {/* </Link> */}
+          <Text
+            className={newPasswordStyle.text}
+            p={'вспомнили пароль? '}
+            a={'войти'}
+          />
+          <Text
+            className={newPasswordStyle.text}
+            p={'нет аккаунта? '}
+            a={'зарегистрироваться   '}
+          />
         </div>
       </div>
     </>

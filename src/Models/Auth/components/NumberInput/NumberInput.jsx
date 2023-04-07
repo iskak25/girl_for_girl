@@ -45,6 +45,7 @@ const NumberInput = () => {
             borderRadius: '20px',
             border: '1px solid #C192EE',
             fontFamily: 'Poppins',
+
             fontStyle: 'normal',
             fontWeight: '500',
             fontSize: '2em',

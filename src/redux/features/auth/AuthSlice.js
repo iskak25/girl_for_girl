@@ -37,7 +37,10 @@ export const signin = createAsyncThunk(
   'auth/signin',
   async (user, thunkAPI) => {
     try {
-      return await authService.signin(user)
+      const res = await authService.signin(user)
+      if (res) {
+      }
+      return res
     } catch (error) {
       const message =
         (error.response &&

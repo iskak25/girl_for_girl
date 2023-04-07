@@ -18,8 +18,6 @@ const SecondAuth = () => {
   const [btnIsPressed, setBtnIsPressed] = useState(false)
 
   const checkPinCode = () => {
-    // const isPinCodeValid = pinCode === CORRECT_PIN_CODE
-
     setBtnIsPressed(true)
     setIsPinCodeValid(isPinCodeValid)
     if (!isPinCodeValid) setPinCode('')
@@ -35,23 +33,12 @@ const SecondAuth = () => {
   const codes = useSelector((state) => state.auth.activ)
   console.log(codes)
   useEffect(() => {
-    // if (isError) {
-    // toast.error(message)
-    // }
-
-    // if (isSuccess) {
-    // newPages()
-    // navigate('')
-    // toast.success(message)
-    // }
-
     dispatch(activUser())
   }, [dispatch])
 
   return (
     <>
       <div className={secondStyle.second_container}>
-        {/* <LoginLogo /> */}
         <div className={secondStyle.second}>
           <p className={secondStyle.numberInput_text}>
             Мы отправили код на ваш e-mail Перейдите по ссылке в письме, чтобы
@@ -59,7 +46,6 @@ const SecondAuth = () => {
           </p>
           <div className={secondStyle.numberInput_input}>
             <ReactCodeInput
-              // {...props}
               id="pinCode"
               type="number"
               inputStyle={{
@@ -70,6 +56,7 @@ const SecondAuth = () => {
                 borderRadius: '20px',
                 border: '1px solid #C192EE',
                 fontFamily: 'Poppins',
+
                 fontStyle: 'normal',
                 fontWeight: '500',
                 fontSize: '2em',

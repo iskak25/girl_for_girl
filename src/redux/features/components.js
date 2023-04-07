@@ -18,9 +18,12 @@ export const activingSlice = createSlice({
     stepsMinus: (state) => {
       state.step -= 1
     },
+    steps: (state, action) => {
+      state.step = action.payload
+    },
   },
 })
 
-export const { isActiv, stepsPlus, stepsMinus } = activingSlice.actions
+export const { isActiv, stepsPlus, stepsMinus, steps } = activingSlice.actions
 
 export default activingSlice.reducer

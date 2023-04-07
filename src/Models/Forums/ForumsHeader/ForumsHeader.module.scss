@@ -15,11 +15,18 @@
     .item {
       margin-bottom: 80px;
       .item_h3 {
-        @include all.text('Poppins', 'normal', 700, 3em, #fff);
+        @include all.text('Poppins', sans-serif, 'normal', 700, 3em, #fff);
         margin-bottom: 17px;
       }
       .item_button {
-        @include all.text('Poppins', 'normal', 500, 1.125em, #fbfbfb);
+        @include all.text(
+          'Poppins',
+          sans-serif,
+          'normal',
+          500,
+          1.125em,
+          #fbfbfb
+        );
         @include all.button(217px, 56px, #c192ee, 10px);
         border: none;
       }

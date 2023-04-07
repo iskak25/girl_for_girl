@@ -2,7 +2,7 @@ import authService from '../../../Models/Auth/services/AuthServices'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
-  value: '123',
+  value: '1234',
 }
 
 export const activFunction = createAsyncThunk(

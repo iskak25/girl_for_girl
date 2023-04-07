@@ -7,7 +7,7 @@
       margin-left: 66px;
       @include all.button(54px, 22px, transparent, 15px);
       border: none;
-      @include all.text('' Inter '', 'normal', 500, 18px, #000);
+      @include all.text('Poppins', sans-serif, 'normal', 500, 18px, #000);
     }
   }
   .item {

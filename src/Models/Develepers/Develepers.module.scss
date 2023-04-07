@@ -15,6 +15,6 @@
   }
   .devsH3 {
     text-align: center;
-    @include all.text('Poppins', 'normal', 400, 32px, #fff);
+    @include all.text('Poppins', sans-serif, 'normal', 400, 32px, #fff);
   }
 }

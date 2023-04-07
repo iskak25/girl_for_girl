@@ -20,11 +20,11 @@ li {
   }
 
   .link {
-    @include all.text('Poppins', 'normal', 400, 18px, #fff);
+    @include all.text('Poppins', sans-serif, 'normal', 400, 18px, #fff);
     pointer-events: none;
   }
   .link_activ {
-    @include all.text('Poppins', 'normal', 400, 18px, #000);
+    @include all.text('Poppins', sans-serif, 'normal', 400, 18px, #000);
   }
   .select {
     display: flex;
@@ -41,14 +41,20 @@ li {
     align-items: center;
   }
 
+  .user_icon {
+  }
+
+  .user_name {
+    @include all.text('Poppins', sans-serif, 'normal', 400, 20px, #db66e4);
+  }
   .button {
     @include all.button(211px, 59px, #000, 15px);
-    @include all.text('Poppins', 'normal', 400, 18px, #fbfbfb);
+    @include all.text('Poppins', sans-serif, 'normal', 400, 18px, #fbfbfb);
     border: 1px solid #fbfbfb;
   }
   .button_activ {
     @include all.button(211px, 59px, #db66e4, 15px);
-    @include all.text('Poppins', 'normal', 400, 18px, #fbfbfb);
+    @include all.text('Poppins', sans-serif, 'normal', 400, 18px, #fbfbfb);
     border: none;
   }
 }

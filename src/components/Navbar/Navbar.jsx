@@ -15,6 +15,7 @@ import MenuItem from '@mui/material/MenuItem'
 import logo_blaclk from '../../assest/img/logo_black.png'
 import logo_white from '../../assest/img/logo_white.png'
 import flag_kyrgyzstan from '../../assest/img/flag_kyrgyzstan.svg'
+import user_icon from '../../assest/img/user_icon.svg'
 import FlagRuss from '../../assest/img/FlagRuss.svg'
 import navStyle from './Navbar.module.scss'
 // import * as React from 'react'
@@ -35,7 +36,6 @@ const pages = [
   { page: 'Конференции', link: '/conferences' },
   { page: 'Видеоуроки', link: '/videolessons' },
 ]
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 const Navbar = () => {
   const [age, setAge] = React.useState('')
@@ -173,6 +173,7 @@ const Navbar = () => {
                   </Link>
                 ))}
               </Box>
+
               <Box sx={{ flexGrow: 0 }}>
                 <FormControl sx={{ m: 1, minWidth: 120, border: 'none' }}>
                   {activing ? (
@@ -190,9 +191,7 @@ const Navbar = () => {
                           </div>
                         </em>
                       </MenuItem>
-                      {/* <MenuItem value={10}>
-                      RU <img src={FlagRuss} alt="FlagRuss" />
-                    </MenuItem> */}
+
                       <MenuItem value={20}>
                         <div className={navStyle.language}>
                           KG <img src={flag_kyrgyzstan} alt="flag_kyrgyzstan" />
@@ -203,58 +202,17 @@ const Navbar = () => {
                     ''
                   )}
                 </FormControl>
-                {/* <select className={navStyle.select} name="flag" id="cars">
-                  <option
-                    style={{
-                      backgroundImage:
-                        'url(../../assest/img/flag_kyrgyzstan.svg)',
-                    }}
-                    value="KG"
-                  >
-                    <div className={navStyle.select_item}>
-                     
-                      KG
-                    </div>
-                  </option>
-                  <option value="RU">
-                    <div className={navStyle.select_item}>
-                      <img src={FlagRuss} alt="FlagRuss" />
-                      RU
-                    </div>
-                  </option>
-                </select> */}
-
-                {/* <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar
-                      alt="Remy Sharp"
-                      src="/static/images/avatar/2.jpg"
-                    />
-                  </IconButton>
-                </Tooltip> */}
-                {/* <Menu
-                  sx={{ mt: '45px' }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu> */}
               </Box>
+              <Link to="/admin">
+                <Box>
+                  <p className={navStyle.user_name}>Садыкова Айканыш</p>
+                  <img
+                    className={navStyle.user_icon}
+                    src={user_icon}
+                    alt="user_icon"
+                  />
+                </Box>
+              </Link>
 
               <Box sx={{ flexGrow: 0 }}>
                 <Link to="/loginPage">

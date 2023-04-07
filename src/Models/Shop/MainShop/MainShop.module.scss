@@ -20,7 +20,14 @@
           @include all.displayCenter();
 
           .discount_p {
-            @include all.text('Poppins', 'normal', 400, 1.125em, #fff);
+            @include all.text(
+              'Poppins',
+              sans-serif,
+              'normal',
+              400,
+              1.125em,
+              #fff
+            );
           }
         }
         .item_img {
@@ -50,14 +57,35 @@
               display: flex;
               justify-content: space-between;
               .text_price__activ {
-                @include all.text('Poppins', 'normal', 700, 1.125em, #000);
+                @include all.text(
+                  'Poppins',
+                  sans-serif,
+                  'normal',
+                  700,
+                  1.125em,
+                  #000
+                );
               }
               .text_noPrice {
-                @include all.text('Poppins', 'normal', 400, 1.125em, #9098b1);
+                @include all.text(
+                  'Poppins',
+                  sans-serif,
+                  'normal',
+                  400,
+                  1.125em,
+                  #9098b1
+                );
                 text-decoration-line: line-;
               }
               .text_price__protsent {
-                @include all.text('Poppins', 'normal', 700, 1.125em, #fb7181);
+                @include all.text(
+                  'Poppins',
+                  sans-serif,
+                  'normal',
+                  700,
+                  1.125em,
+                  #fb7181
+                );
                 margin-right: 10px;
               }
             }

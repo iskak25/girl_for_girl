@@ -9,7 +9,11 @@ const LoginLogo = () => {
         <div className={logoStyle.loginLogo_header}>
           <img className={logoStyle.loginLogo_logo} src={logo} alt="logo" />
           <div className={logoStyle.loginLogo_girl}>
-            <img src={girswater} alt="girswater" />
+            <img
+              className={logoStyle.loginLogo_girl_img}
+              src={girswater}
+              alt="girswater"
+            />
             <h3>Расти вместе с нами</h3>
           </div>
         </div>

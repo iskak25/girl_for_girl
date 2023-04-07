@@ -5,9 +5,9 @@
   @include all.displayCenter();
   flex-direction: column;
   padding-top: 80px;
-  @include all.text('Poppins', 'normal', 400, 6.125, #000);
+  @include all.text('Poppins', sans-serif, 'normal', 400, 6.125, #000);
   .text_h1 {
-    @include all.text('Poppins', 'normal', 600, 90px, #000);
+    @include all.text('Poppins', sans-serif, 'normal', 600, 90px, #000);
   }
   .img {
     img {

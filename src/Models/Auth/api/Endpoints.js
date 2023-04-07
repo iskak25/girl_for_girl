@@ -8,6 +8,11 @@ const Endpoints = {
     REFRESH: '/api/v1/auth/refresh',
     ACTIV: '/api/v1/auth/active/',
   },
+  RECOVERY: {
+    CHECKEMAIL: '/api/v1/password/forgot',
+    NEWCODE: '/api/v1/password/reset/',
+    NEWPASSWORD: '/api/v1/password/reset',
+  },
 }
 
 export default Endpoints
