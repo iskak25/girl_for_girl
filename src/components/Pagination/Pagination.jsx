@@ -1,7 +1,6 @@
 import React from 'react'
+import { left, right } from '../../assest/img'
 import paginationStyle from './Pagination.module.scss'
-import left from '../../assest/img/left.svg'
-import right from '../../assest/img/right.svg'
 
 const Pagination = () => {
   return (
@@ -25,21 +24,6 @@ const Pagination = () => {
           </div>
           <div className={paginationStyle.item}>
             <p className={paginationStyle.p}>....</p>
-          </div>
-          <div className={paginationStyle.item}>
-            <p className={paginationStyle.p}>5</p>
-          </div>
-          <div className={paginationStyle.item}>
-            <p className={paginationStyle.p}>6</p>
-          </div>
-          <div className={paginationStyle.item}>
-            <p className={paginationStyle.p}>7</p>
-          </div>
-          <div className={paginationStyle.item}>
-            <p className={paginationStyle.p}>8</p>
-          </div>
-          <div className={paginationStyle.item}>
-            <p className={paginationStyle.p}>9</p>
           </div>
           <div className={paginationStyle.item_img}>
             <img className={paginationStyle.img} src={right} alt="right" />

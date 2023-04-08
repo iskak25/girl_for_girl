@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import sadGirl from '../../../assest/img/sadGirl.png'
+import { sadGirl } from '../../../assest/img'
 import { isActiv } from '../../../redux/features/components'
 import isActivStyle from './IsActiv.module.scss'
 

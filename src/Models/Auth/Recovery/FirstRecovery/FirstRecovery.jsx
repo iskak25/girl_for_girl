@@ -17,8 +17,8 @@ const FirstRecovery = (props) => {
     email,
   }
   const userData = JSON.stringify(vales, null, 2)
+
   function newPages() {
-    console.log('asd')
     dispatch(checkUser(userData))
     props.onNext()
   }

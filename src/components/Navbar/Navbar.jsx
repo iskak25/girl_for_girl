@@ -1,32 +1,29 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
 import MenuIcon from '@mui/icons-material/Menu'
-import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
-import MenuItem from '@mui/material/MenuItem'
-import logo_blaclk from '../../assest/img/logo_black.png'
-import logo_white from '../../assest/img/logo_white.png'
-import flag_kyrgyzstan from '../../assest/img/flag_kyrgyzstan.svg'
-import user_icon from '../../assest/img/user_icon.svg'
-import FlagRuss from '../../assest/img/FlagRuss.svg'
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Button,
+  MenuItem,
+  FormControl,
+  Select,
+} from '@mui/material'
+
 import navStyle from './Navbar.module.scss'
-// import * as React from 'react'
-import InputLabel from '@mui/material/InputLabel'
-// import MenuItem from '@mui/material/MenuItem'
-import FormControl from '@mui/material/FormControl'
-import Select from '@mui/material/Select'
-import { NavigateBefore } from '@mui/icons-material'
-import { FormHelperText } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { isActiv } from '../../redux/features/components'
+import {
+  logo_blaclk,
+  logo_white,
+  flag_kyrgyzstan,
+  user_icon,
+  FlagRuss,
+} from '../../assest/img'
 
 const pages = [
   { page: 'Главная', link: '/' },

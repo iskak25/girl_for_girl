@@ -26,12 +26,7 @@ const RootRecovere = () => {
           <div className={RootRecoveryStyle.logo}>
             <LoginLogo />
           </div>
-          <div className={RootRecoveryStyle.item}>
-            {pages[step]}
-            {/* <FirstRecovery /> */}
-            {/* <SecondRecovery /> */}
-            {/* <NewPassword /> */}
-          </div>
+          <div className={RootRecoveryStyle.item}>{pages[step]}</div>
         </div>
       </div>
     </>

@@ -1,6 +1,5 @@
 import React from 'react'
 import mentorMainStyle from './MentorMain.module.scss'
-import mainMentot from '../../../assest/img/mainMentor.jpg'
 import Navbar from '../../../components/Navbar/Navbar'
 
 const MentorMain = () => {
@@ -9,7 +8,6 @@ const MentorMain = () => {
       <div className={mentorMainStyle.container}>
         <div className={mentorMainStyle.content}>
           <Navbar />
-          {/* <img src={mainMentot} alt="mainMentir" /> */}
           <div className={mentorMainStyle.main_text}>
             <h2 className={mentorMainStyle.main_text_h2}>
               Стань участником

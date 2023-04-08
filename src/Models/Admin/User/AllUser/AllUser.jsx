@@ -1,9 +1,9 @@
 import { all } from 'axios'
 import React from 'react'
 import allStyle from './AllUser.module.scss'
-import vector_left from '../../../../assest/img/vector_left.svg'
 import { useDispatch } from 'react-redux'
 import { steps } from '../../../../redux/features/components'
+import { vector_left } from '../../../../assest/img'
 
 const AllUser = () => {
   const dispatch = useDispatch()

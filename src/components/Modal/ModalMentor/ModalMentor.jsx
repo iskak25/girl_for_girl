@@ -1,11 +1,19 @@
 import React from 'react'
 import modalStyle from '../ModalMentor/ModalMentor.module.scss'
-import mentor_img from '../../../assest/img/mentor_img.jpg'
-import whatsapp_mentor from '../../../assest/img/whatsapp_mentor.svg'
-import facebook_mentor from '../../../assest/img/facebook_mentor.svg'
-import instagram_mentor from '../../../assest/img/instagram_mentor.svg'
-import close_icon from '../../../assest/img/close_icon.svg'
+
+import { useNavigate } from 'react-router-dom'
+import {
+  mentor_img,
+  whatsapp_mentor,
+  facebook_mentor,
+  instagram_mentor,
+  close_icon,
+  edit_icon,
+} from '../../../assest/img'
+
 const ModalMentor = ({ activ, setActiv }) => {
+  const navigate = useNavigate()
+
   return (
     <>
       <div
@@ -29,6 +37,19 @@ const ModalMentor = ({ activ, setActiv }) => {
           <div className={modalStyle.item}>
             <div className={modalStyle.item_list}>
               <img className={modalStyle.mentor_img} src={mentor_img} alt="" />
+              <div className={modalStyle.mentor_admin}>
+                <img
+                  onClick={() => navigate(`/editMentor`)}
+                  className={modalStyle.mentor_admin_icon}
+                  src={edit_icon}
+                  alt="edit_icon"
+                />
+                {/* <img
+                  className={modalStyle.mentor_img_admin_icon}
+                  src={edit_icon}
+                  alt="edit_icon"
+                /> */}
+              </div>
             </div>
             <div className={modalStyle.item_list}>
               <h3 className={modalStyle.mentor_name}>Жылдыз Капарова</h3>

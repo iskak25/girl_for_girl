@@ -1,6 +1,6 @@
 import React from 'react'
-import logo from '../../../../assest/img/logo_black.png'
-import girswater from '../../../../assest/img/girswater.png'
+import { logo, girswater } from '../../../../assest/img'
+
 import logoStyle from '../LoginLogo/LoginLogo.module.scss'
 const LoginLogo = () => {
   return (

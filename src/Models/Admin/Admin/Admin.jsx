@@ -9,23 +9,13 @@ import adminstyle from './Admin.module.scss'
 const Admin = () => {
   const pages = [<UserPages />, <UserSettings />, <AllUser />, <EditUser />]
   const step = useSelector((state) => state.activ.step)
-  function body() {
-    if (step === 0) {
-      return pages[0]
-    } else if (step === 1) {
-      return pages[1]
-    } else if (step === 2) {
-      return pages[2]
-    } else if (step === 3) {
-      return pages[3]
-    }
-  }
 
   return (
     <>
       <div className={adminstyle.container}>
         <AdminSteps />
-        {body()}
+        {/* {body()} */}
+        {pages[step]}
       </div>
     </>
   )

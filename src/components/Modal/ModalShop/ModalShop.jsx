@@ -1,9 +1,6 @@
 import React from 'react'
+import { close, shop1, shop_car, shop_lacaition } from '../../../assest/img'
 import modalShopStyle from './ModalShop.module.scss'
-import shop1 from '../../../assest/img/shop1.jpg'
-import shop_car from '../../../assest/img/shop_car.svg'
-import shop_lacaition from '../../../assest/img/shop_lacaition_Icon.svg'
-import close from '../../../assest/img/close_icon.svg'
 
 const ModalShop = ({ activ, setActiv }) => {
   return (

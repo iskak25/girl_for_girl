@@ -1,11 +1,13 @@
 import React from 'react'
 import footerStyle from './Footer.module.scss'
-import footerLogo from '../../assest/img/logo_black.png'
-import telegram from '../../assest/img/telegram.svg'
-import tikTok from '../../assest/img/tikTok.svg'
-import instagram from '../../assest/img/instsgram.svg'
-import facebook from '../../assest/img/facebook.svg'
 import { Link } from 'react-router-dom'
+import {
+  footerLogo,
+  telegram,
+  tikTok,
+  instagram,
+  facebook,
+} from '../../assest/img'
 
 const Footer = () => {
   return (

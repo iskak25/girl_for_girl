@@ -1,9 +1,6 @@
 import React from 'react'
+import { mentor, shop, trenink } from '../../../../assest/img'
 import contentStyle from './Content.module.scss'
-import mentor from '../../../../assest/img/mentor.png'
-import shop from '../../../../assest/img/shop.png'
-import trenink from '../../../..//assest/img/trenink.png'
-import YouTube from '../../../../assest/img/YouTube.png'
 
 const Content = () => {
   return (
@@ -38,11 +35,17 @@ const Content = () => {
                   развивайся и достигай успеха
                 </p>
               </div>
-              <img
-                className={contentStyle.item_img}
-                src={YouTube}
-                alt="YouTube"
-              />
+
+              <iframe
+                width="344"
+                height="195"
+                style={{ borderRadius: '10px' }}
+                src="https://www.youtube.com/embed/9PMQWNm1Yk4"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
             </div>
             <button className={contentStyle.item_button}>подробнее</button>
           </div>

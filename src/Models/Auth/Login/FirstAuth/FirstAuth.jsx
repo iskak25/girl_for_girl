@@ -33,7 +33,7 @@ const FirstAuth = (props) => {
   function newPages() {
     console.log('asd')
     dispatch(signup(userData))
-    props.onNext()
+    // props.onNext()
   }
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth,

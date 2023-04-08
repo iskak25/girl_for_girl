@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
-import Button from '../../components/Button/Button'
-import Input from '../../components/Input/Input'
 import Text from '../../components/Text/Text'
 import newPasswordStyle from '../NewPassword/NewPassword.module.scss'
-import firstStyle from '../../Login/FirstAuth/FirstAuth.module.scss'
 import { newPassword } from '../../../../redux/features/recovery/recoverySlice'
 
 const NewPassword = () => {

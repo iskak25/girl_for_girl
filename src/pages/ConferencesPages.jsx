@@ -6,7 +6,6 @@ import RootForums from '../Models/Forums/RootForums/RootForums'
 const ConferencesPages = () => {
   return (
     <div>
-      {' '}
       <Navbar />
       <RootForums />
       <Footer />

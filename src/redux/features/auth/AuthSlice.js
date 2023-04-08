@@ -18,6 +18,7 @@ export const signup = createAsyncThunk(
   'auth/signup',
   async (user, thunkAPI) => {
     try {
+      console.log('as')
       return await authService.signup(user)
       // props.onNext()
     } catch (error) {

@@ -15,10 +15,9 @@
       grid-template-rows: repeat(3, 1fr);
       grid-column-gap: 11px;
       grid-row-gap: 10px;
-      $img: '../../../assest/img/0.0.jpg';
       .list {
         width: 100%;
-        background-image: url($img);
+        background-image: url('../../../assest/img/photo/0.0.jpg');
         width: 678px;
         height: 484px;
         display: grid;

@@ -1,10 +1,13 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Modal from '../../../components/Modal/ModalMentor/ModalMentor'
 import allMentorStyle from './AllMentor.module.scss'
 
 const AllMentor = ({ title }) => {
   const [modalActiv, setModalActiv] = useState(false)
+  const navigate = useNavigate()
+
   console.log(title)
   return (
     <>
@@ -12,6 +15,9 @@ const AllMentor = ({ title }) => {
       <div className={allMentorStyle.container}>
         <div className={allMentorStyle.content}>
           <h3 className={allMentorStyle.content_h3}>{title}</h3>
+          <button onClick={() => navigate(`/addMentor`)}>
+            ДАБАВИТЬ МЕНТОРА
+          </button>
           <div className={allMentorStyle.item}>
             <div className={allMentorStyle.list}>
               <div className={allMentorStyle.listOne}>

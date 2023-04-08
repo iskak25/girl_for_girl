@@ -1,8 +1,7 @@
 import React from 'react'
 import headerStyle from './Header.module.scss'
-import header_img from '../../../../assest/img/header_img.png'
-// import Button from '../../../../Auth/components/Button/Button'
 import { Link } from 'react-router-dom'
+import { header_img } from '../../../../assest/img'
 
 const Header = () => {
   return (

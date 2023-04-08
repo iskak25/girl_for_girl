@@ -1,6 +1,6 @@
 import React from 'react'
+import { devsWumen } from '../../assest/img'
 import devStyle from './Develepers.module.scss'
-import devsWumen from '../../assest/img/devsWumen.png'
 const Develepers = () => {
   return (
     <>

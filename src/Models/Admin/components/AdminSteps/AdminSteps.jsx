@@ -1,10 +1,9 @@
 import React from 'react'
 import adminStyle from './AdminSteps.module.scss'
-import people from '../../../../assest/img/people.svg'
-import setting from '../../../../assest/img/setting-2.svg'
-import user from '../../../../assest/img/user_icon.svg'
+
 import { steps } from '../../../../redux/features/components'
 import { useDispatch, useSelector } from 'react-redux'
+import { people, setting, user } from '../../../../assest/img'
 
 const AdminSteps = () => {
   const dispatch = useDispatch()

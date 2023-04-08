@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Button from '../../components/Button/Button'
-import NumberInput from '../../components/NumberInput/NumberInput'
 import Text from '../../components/Text/Text'
-import LoginLogo from '../LoginLogo/LoginLogo'
 import secondStyle from '../SecondAuth/SecondAuth.module.scss'
-import numberInputStyle from '../../components/NumberInput/NumberInput.module.scss'
 import ReactCodeInput from 'react-code-input'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -13,15 +9,24 @@ import {
   activFunction,
 } from '../../../../redux/features/auth/UserActivlice'
 const SecondAuth = () => {
+  const style = {
+    width: '88px',
+    height: '118px',
+    margin: '10px',
+    backgroundColor: '#fff',
+    borderRadius: '20px',
+    border: '1px solid #C192EE',
+    fontFamily: 'Poppins',
+
+    fontStyle: 'normal',
+    fontWeight: '500',
+    fontSize: '2em',
+    textAlign: 'center',
+  }
+
   const [isPinCodeValid, setIsPinCodeValid] = useState(true)
   const [pinCode, setPinCode] = useState('')
   const [btnIsPressed, setBtnIsPressed] = useState(false)
-
-  const checkPinCode = () => {
-    setBtnIsPressed(true)
-    setIsPinCodeValid(isPinCodeValid)
-    if (!isPinCodeValid) setPinCode('')
-  }
 
   const handlePinChange = (pinCode) => {
     setPinCode(pinCode)
@@ -48,20 +53,7 @@ const SecondAuth = () => {
             <ReactCodeInput
               id="pinCode"
               type="number"
-              inputStyle={{
-                width: '88px',
-                height: '118px',
-                margin: '10px',
-                backgroundColor: '#fff',
-                borderRadius: '20px',
-                border: '1px solid #C192EE',
-                fontFamily: 'Poppins',
-
-                fontStyle: 'normal',
-                fontWeight: '500',
-                fontSize: '2em',
-                textAlign: 'center',
-              }}
+              inputStyle={style}
               isValid={isPinCodeValid}
               fields={4}
               onChange={handlePinChange}

@@ -5,6 +5,8 @@ import FirstRecovery from './Models/Auth/Recovery/FirstRecovery/FirstRecovery'
 // import Recovery from './Models/Auth/Recovery/Recovery'
 import RootRecovere from './Models/Auth/Recovery/RootRecovery/RootRecovery'
 import DevelepersRoot from './Models/Develepers/DevelepersRoot'
+import AddMentor from './Models/Mentor/AddMentor/AddMentor'
+import EditMentor from './Models/Mentor/EditMentor/EditMentor'
 // import IsActiv from './Models/Home/IsActiv/IsActiv'
 import AdminPages from './pages/AdminPages'
 import AuthPages from './pages/AuthPages'
@@ -81,6 +83,16 @@ const MainRoutes = () => {
       link: '/admin',
       element: <AdminPages />,
       id: 13,
+    },
+    {
+      link: '/editMentor',
+      element: <EditMentor />,
+      id: 14,
+    },
+    {
+      link: '/addMentor',
+      element: <AddMentor />,
+      id: 15,
     },
   ]
   // console.log('asdfg')

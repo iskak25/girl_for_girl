@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactCodeInput from 'react-code-input'
-import NumberInput from '../../components/NumberInput/NumberInput'
 import secondRecovery from './SecondRecovery.module.scss'
 import secondStyle from '../../Login/SecondAuth/SecondAuth.module.scss'
 import { useState } from 'react'
@@ -58,7 +57,7 @@ const SecondRecovery = (props) => {
           placeholder="-"
         />
         <div className={secondRecovery.button}>
-          <button onClick={() => newPage()} className={secondRecovery.btn}>
+          <button onClick={newPage} className={secondRecovery.btn}>
             Подтвердить
           </button>
         </div>
