@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import {
   checkUser,
-  reset,
+  // reset,
 } from '../../../../redux/features/recovery/recoverySlice'
 import { toast } from 'react-toastify'
 
@@ -16,11 +16,13 @@ const FirstRecovery = (props) => {
   const vales = {
     email,
   }
-  const userData = JSON.stringify(vales, null, 2)
+
+  const userData = vales.email
 
   function newPages() {
     dispatch(checkUser(userData))
     props.onNext()
+    console.log(vales.email)
   }
 
   const dispatch = useDispatch()
@@ -32,14 +34,12 @@ const FirstRecovery = (props) => {
       // if (isError) {
       //   toast.error(message)
       // }
-
       // if (isSuccess) {
       //   // newPages()
       //   // navigate('')
       //   toast.success(message)
       // }
-
-      dispatch(reset())
+      // dispatch(reset())
     },
     [
       // user, isError, isSuccess, message, dispatch

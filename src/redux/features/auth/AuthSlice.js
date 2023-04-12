@@ -13,6 +13,26 @@ const initialState = {
   message: '',
 }
 
+// get region
+export const getRegion = createAsyncThunk(
+  'auth/signup',
+  async (user, thunkAPI) => {
+    try {
+      console.log('as')
+      return await authService.getRegion(user)
+      // props.onNext()
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  },
+)
+
 // SignUp user
 export const signup = createAsyncThunk(
   'auth/signup',
@@ -64,6 +84,7 @@ export const authSlice = createSlice({
       state.isError = false
       state.message = ''
     },
+    getRegion: (state) => {},
   },
   extraReducers: (builder) => {
     builder

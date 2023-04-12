@@ -48,7 +48,10 @@ import shop2 from './photo/shop2.jpg'
 import shop3 from './photo/shop3.jpg'
 import shop4 from './photo/shop4.jpg'
 
+import plus_icon from './icon/plus_icon.png'
+
 export {
+  plus_icon,
   shop1,
   shop2,
   shop3,

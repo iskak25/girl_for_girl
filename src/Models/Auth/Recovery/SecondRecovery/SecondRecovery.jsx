@@ -4,11 +4,12 @@ import secondRecovery from './SecondRecovery.module.scss'
 import secondStyle from '../../Login/SecondAuth/SecondAuth.module.scss'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+
+import { useEffect } from 'react'
 import {
   checkCodeAction,
   newCode,
-} from '../../../../redux/features/recovery/checkCodeSlice'
-import { useEffect } from 'react'
+} from '../../../../redux/features/recovery/recoverySlice'
 
 const SecondRecovery = (props) => {
   // const [isPinCodeValid, setIsPinCodeValid] = useState(true)
@@ -17,15 +18,17 @@ const SecondRecovery = (props) => {
     setPinCode(pinCode)
     // setBtnIsPressed(false)
   }
+
   const dispatch = useDispatch()
   function newPage() {
+    dispatch(checkCodeAction(pinCode))
     dispatch(newCode(pinCode))
     console.log('gg')
     props.onNext()
   }
 
   useEffect(() => {
-    dispatch(checkCodeAction())
+    dispatch(checkCodeAction(pinCode))
   }, [dispatch])
 
   return (

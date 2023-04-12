@@ -4,10 +4,12 @@ import Text from '../../components/Text/Text'
 import secondStyle from '../SecondAuth/SecondAuth.module.scss'
 import ReactCodeInput from 'react-code-input'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  activUser,
-  activFunction,
-} from '../../../../redux/features/auth/UserActivlice'
+import { activFunction } from '../../../../redux/features/auth/UserActivlice'
+import { activUser } from '../../../../redux/features/recovery/recoverySlice'
+// import {
+//   activUser,
+//   activFunction,
+// } from '../../../../redux/features/auth/UserActivlice'
 const SecondAuth = () => {
   const style = {
     width: '88px',

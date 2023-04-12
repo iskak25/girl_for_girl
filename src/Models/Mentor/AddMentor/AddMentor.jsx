@@ -11,11 +11,8 @@ const AddMentor = () => {
     description: '',
   })
   const dispatch = useDispatch()
-  //   const posts = useSelector((state) => state.crudMentor.mentors)
-  const activing = useSelector((state) => state.activ.stateActiv)
-  console.log(product)
-  console.log(activing)
-  //   console.log(posts)
+  const posts = useSelector((state) => state.mentor.mentors)
+  console.log(posts)
 
   const handleInput = (e, product, setProduct) => {
     let obj = {
@@ -49,7 +46,7 @@ const AddMentor = () => {
               id="outlined-basic"
               label="ФОТО"
               variant="outlined"
-              name="фото"
+              name="photo"
               onChange={(e) => handleInput(e, product, setProduct)}
             />
             <TextField
@@ -93,7 +90,7 @@ const AddMentor = () => {
                   dispatch(addMentors(product))
                 }}
               >
-                ADD PRODUCT
+                ADD MENTOR
               </Button>
             </Stack>
           </form>

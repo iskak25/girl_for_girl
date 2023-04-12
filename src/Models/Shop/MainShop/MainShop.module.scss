@@ -1,6 +1,14 @@
 @use '../../../assest/mixin/all.scss' as all;
 .container {
   margin-top: 60px;
+  .plus_h2 {
+    @include all.displayItems(center);
+    margin-bottom: 10px;
+    .plus_img {
+      width: 40px;
+      height: 40px;
+    }
+  }
   .content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

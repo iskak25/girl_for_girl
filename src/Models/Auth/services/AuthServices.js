@@ -1,10 +1,22 @@
-import Endpoints from '../api/Endpoints'
 import axios from 'axios'
+import Endpoints from '../../../api/Endpoints'
 
 // SignUp user
 const signup = async (userData) => {
   const response = await axios.post(
     `${Endpoints.BASE_URL.url}${Endpoints.AUTH.REGISTER}`,
+    userData,
+    {
+      headers: { 'Content-Type': 'application/json' },
+    },
+  )
+
+  return response.data
+}
+
+const getRegion = async (userData) => {
+  const response = await axios.post(
+    `${Endpoints.BASE_URL.url}${Endpoints.AUTH.GETREGION}`,
     userData,
     {
       headers: { 'Content-Type': 'application/json' },
@@ -46,6 +58,7 @@ const authService = {
   signup,
   signin,
   activUser,
+  getRegion,
 }
 
 export default authService

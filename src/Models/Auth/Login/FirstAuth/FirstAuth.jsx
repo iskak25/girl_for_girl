@@ -10,14 +10,15 @@ import {
   // signin,
   signup,
 } from '../../../../redux/features/auth/AuthSlice'
-const FirstAuth = (props) => {
+import { increment } from '../../../../redux/features/components'
+const FirstAuth = () => {
   const [lastName, setLastName] = useState('')
   const [firstName, setFirstName] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPass, setConfirmPass] = useState('')
-  const [placeOfBirth, setPlaceOfBirth] = useState('')
+  const [region_id, setRegion_id] = useState(1)
 
   const vales = {
     email,
@@ -25,13 +26,16 @@ const FirstAuth = (props) => {
     lastName,
     password,
     confirmPass,
-    placeOfBirth,
+    region_id,
     phoneNumber,
   }
+
   const userData = JSON.stringify(vales, null, 2)
+
   const dispatch = useDispatch()
   function newPages() {
     console.log('asd')
+
     dispatch(signup(userData))
     // props.onNext()
   }
@@ -161,11 +165,11 @@ const FirstAuth = (props) => {
           </div>
           <div className={firstStyle.first_item}>
             <input
-              onChange={(e) => setPlaceOfBirth(e.target.value)}
+              onChange={(e) => setRegion_id(e.target.value)}
               className={firstStyle.input_small}
               type="text"
               placeholder="место проживания"
-              value={placeOfBirth}
+              value={region_id}
               name="placeOfBirth"
             />
             <input
@@ -191,7 +195,7 @@ const FirstAuth = (props) => {
               // disabled={!isValid && !dirty}
               // onClick={handleSubmit}
               // onClick={() => dispatch(signup(userData))}
-              onClick={() => newPages()}
+              onClick={() => dispatch(increment())}
               type="submit"
               className={firstStyle.first_btn}
             >

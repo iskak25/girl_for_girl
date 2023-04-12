@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import mainShopStyle from './MainShop.module.scss'
 import ModalShop from '../../../components/Modal/ModalShop/ModalShop'
-import { shop1, shop2, shop3, shop4 } from '../../../assest/img'
+import { plus_icon, shop1, shop2, shop3, shop4 } from '../../../assest/img'
+import { Link } from 'react-router-dom'
 
 const MainShop = () => {
   const [modalActiv, setModalActiv] = useState(false)
@@ -14,6 +15,16 @@ const MainShop = () => {
         setActiv={setModalActiv}
       />
       <div className={modalActiv ? 'dislay:"none"' : mainShopStyle.container}>
+        <Link to="/addProduct">
+          <h2 className={mainShopStyle.plus_h2}>
+            добавить продукт
+            <img
+              className={mainShopStyle.plus_img}
+              src={plus_icon}
+              alt="plus_icon"
+            />
+          </h2>
+        </Link>
         <div className={mainShopStyle.content}>
           <div
             onClick={() => setModalActiv(true)}

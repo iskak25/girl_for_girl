@@ -4,38 +4,36 @@ import recoveryService from '../../../Models/Auth/services/RecoveryServices'
 // Get user from LocalStorage
 
 const initialState = {
-  user: null,
-  isError: false,
-  isSuccess: false,
-  isLoading: false,
-  message: '',
+  value: '1234',
 }
 
 // check user
-export const checkUser = createAsyncThunk(
-  'recovery/checkUser',
-  async (user, thunkAPI) => {
-    try {
-      return await recoveryService.checkemail(user)
-      // props.onNext()
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
-      return thunkAPI.rejectWithValue(message)
-    }
-  },
-)
+// export const checkUser = createAsyncThunk(
+//   'recovery/checkUser',
+//   async (user, thunkAPI) => {
+//     try {
+//       return await recoveryService.checkemail(user)
+//       // props.onNext()
+//     } catch (error) {
+//       const message =
+//         (error.response &&
+//           error.response.data &&
+//           error.response.data.message) ||
+//         error.message ||
+//         error.toString()
+//       return thunkAPI.rejectWithValue(message)
+//     }
+//   },
+// )
 
 // newPassword
 export const newPassword = createAsyncThunk(
   'recovery/newPassword',
-  async (user, thunkAPI) => {
+  async (data, thunkAPI) => {
     try {
-      const res = await recoveryService.newPassword(user)
+      console.log(data)
+
+      const res = await recoveryService.newPassword(data)
       if (res) {
       }
       return res
@@ -51,49 +49,52 @@ export const newPassword = createAsyncThunk(
   },
 )
 
-export const recoverySlice = createSlice({
-  name: 'recovery',
+export const checkUser = createAsyncThunk(
+  'recovery/checkUser',
+  async (user, thunkAPI) => {
+    try {
+      return await recoveryService.checkemail(user)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  },
+)
+
+export const newCode = createAsyncThunk(
+  'auth/activ',
+  async (code, thunkAPI) => {
+    try {
+      return await recoveryService.newCode(code)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  },
+)
+
+export const RecoveryUser = createSlice({
+  name: 'userActiv',
   initialState,
   reducers: {
-    reset: (state) => {
-      state.isLoading = false
-      state.isSuccess = false
-      state.isError = false
-      state.message = ''
+    activUser: (state, action) => {
+      state.value = action.payload
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(checkUser.pending, (state) => {
-        state.isLoading = true
-      })
-      .addCase(checkUser.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-        state.user = action.payload
-      })
-      .addCase(checkUser.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
-        state.user = null
-      })
-      .addCase(newPassword.pending, (state) => {
-        state.isLoading = true
-      })
-      .addCase(newPassword.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-        state.user = action.payload
-      })
-      .addCase(newPassword.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
-        state.user = null
-      })
+    checkCodeAction: (state, action) => {
+      state.value = action.payload
+    },
   },
 })
 
-export const { reset } = recoverySlice.actions
-export default recoverySlice.reducer
+export const { activUser, checkCodeAction } = RecoveryUser.actions
+export default RecoveryUser.reducer

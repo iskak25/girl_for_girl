@@ -4,12 +4,16 @@ import SecondAuth from './SecondAuth/SecondAuth'
 import FirstAuth from './FirstAuth/FirstAuth'
 import LoginLogo from './LoginLogo/LoginLogo'
 import ThreeSteps from '../components/Steps/ThreeSteps/ThreeSteps'
+import { useSelector } from 'react-redux'
 
 const Login = () => {
-  const [step, setStep] = useState(0)
-  const onNext = () => setStep(step + 1)
-  const onPrevious = () => setStep(step - 1)
-  const pages = [<FirstAuth onNext={onNext} />, <SecondAuth onNext={onNext} />]
+  // const [step, setStep] = useState(0)
+  const step = useSelector((state) => state.activ.step)
+  console.log(step)
+
+  // const onNext = () => setStep(step + 1)
+  // const onPrevious = () => setStep(step - 1)
+  const pages = [<FirstAuth />, <SecondAuth />]
   // const step = useSelector((state) => state.activ.step)
 
   return (
