@@ -9,9 +9,10 @@ import { useSelector } from 'react-redux'
 const Login = () => {
   // const [step, setStep] = useState(0)
   const step = useSelector((state) => state.activ.step)
-  console.log(step)
+  // const step = 0
+  // console.log(step)
 
-  // const onNext = () => setStep(step + 1)
+  // const onNext = () => step(step + 1)
   // const onPrevious = () => setStep(step - 1)
   const pages = [<FirstAuth />, <SecondAuth />]
   // const step = useSelector((state) => state.activ.step)

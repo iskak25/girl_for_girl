@@ -2,24 +2,19 @@ import React from 'react'
 import { Box, Button, Grid, Stack, TextField } from '@mui/material'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import {
-  addNewPost,
-  addproduct,
-  UploadFile,
-} from '../../../redux/features/product/productCrudSlice'
+import { addNewPost } from '../../../../redux/features/product/productCrudSlice'
 import { useMemo } from 'react'
 
-const AddProduct = () => {
+const EditProduct = () => {
   const [product, setProduct] = useState({
     title: '',
     description: '',
-    price: 0,
-    size: '',
+    price: null,
   })
   const dispatch = useDispatch()
-  // const posts = useSelector((state) => state.product.products)
-  // console.log(posts)
+  const { idProduct, isLoadingId, isError, isSuccess, message } = useSelector(
+    (state) => state.product,
+  )
 
   const handleInput = (e, product, setProduct) => {
     let obj = {
@@ -30,28 +25,27 @@ const AddProduct = () => {
   }
   const [selectFile, setSelectFile] = useState(null)
   const handleChange = (e) => {
-    setSelectFile(e.target.files)
+    setSelectFile(e.target.files[0])
   }
-  // const [uploaded, setUploaded] = useState()
 
-  const formData = new FormData()
-  formData.append('files', selectFile)
-  console.log(formData)
-  const data = { product, formData }
-  useEffect(() => {}, [])
+  function addData() {
+    const formData = new FormData()
+    formData.append('file', selectFile)
+
+    const data = { product: { ...product, price: +product.price }, formData }
+
+    dispatch(addNewPost(data))
+  }
 
   const handleDeleteFile = () => {
     setSelectFile(null)
-    // handleUpload()
   }
-  // if (selectFile) {
-  //   handleUpload()
-  // }
+
   return (
     <div>
       <Box sx={{ bgcolor: '#fff', height: '50vh', padding: '20vh' }}>
         <center variant="h6" gutterBottom>
-          ДАБАВИТЬ ПРОДУКТ
+          ИЗМЕНИТ ПРОДУКТ
         </center>
 
         <Grid
@@ -67,41 +61,33 @@ const AddProduct = () => {
         >
           <form>
             <TextField
-              value={product.title}
+              value={idProduct?.title}
               fullWidth
               id="outlined-basic"
-              label="описания"
+              label="названиe"
               variant="outlined"
               name="title"
               onChange={(e) => handleInput(e, product, setProduct)}
             />
             <TextField
-              value={product.description}
+              value={idProduct?.description}
               fullWidth
               id="outlined-basic"
-              label="DESCRIPTION"
+              label="описания "
               variant="outlined"
               name="description"
               onChange={(e) => handleInput(e, product, setProduct)}
             />
             <TextField
-              value={product.price}
+              value={idProduct?.price}
               fullWidth
               id="outlined-basic"
-              label="Цена"
+              //   label="Цена"
               variant="outlined"
               name="price"
               onChange={(e) => handleInput(e, product, setProduct)}
             />
-            <TextField
-              value={product.size}
-              fullWidth
-              id="outlined-basic"
-              label="Размер товара"
-              variant="outlined"
-              name="size"
-              onChange={(e) => handleInput(e, product, setProduct)}
-            />
+
             <Button
               variant="contained"
               disabled={selectFile ? 'disabled' : ''}
@@ -110,6 +96,8 @@ const AddProduct = () => {
             >
               Прикрепить файл
               <input
+                value={idProduct.imageUrl}
+                //  setSelectFile()
                 hidden
                 type="file"
                 onChange={handleChange}
@@ -149,11 +137,9 @@ const AddProduct = () => {
                 variant="outlined"
                 size="large"
                 fullWidth
-                onClick={() => {
-                  dispatch(addNewPost(data))
-                }}
+                onClick={addData}
               >
-                ADD PRODUCT
+                EDIT PRODUCT
               </Button>
             </Stack>
           </form>
@@ -163,4 +149,4 @@ const AddProduct = () => {
   )
 }
 
-export default AddProduct
+export default EditProduct

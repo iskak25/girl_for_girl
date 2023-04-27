@@ -40,107 +40,77 @@
         @include all.displayCenter();
         flex-direction: column;
         .item_img__img {
-          width: 286px;
-          height: 424px;
-        }
-        .item_img__p {
-          @include all.text('Poppins', sans-serif, 'normal', 700, 2em, #000);
+          width: 383px;
+          height: 560px;
         }
       }
       .item_text {
-        @include all.displayCenter();
-        flex-direction: column;
-
-        min-width: 440px;
         .text_heder {
-          width: 440px;
-          display: flex;
-          justify-content: space-between;
-          .text_heder_h3 {
-            @include all.text('Poppins', sans-serif, 'normal', 500, 2em, #000);
-          }
-          .text_heder_h2 {
-            @include all.text('Poppins', sans-serif, 'normal', 700, 2em, #000);
-          }
+          @include all.displayJustify(space-between);
+          // align-items: center;
+          flex-direction: column;
+          min-width: 440px;
+          margin-top: 70px;
+          min-height: 350px;
+          max-height: 100%;
         }
-        .text_center {
-          margin-top: 36px;
-          @include all.text('Poppins', sans-serif, 'normal', 400, 1.25em, #000);
+        .text_name {
+          @include all.text(
+            'Poppins',
+            sans-serif,
+            'normal',
+            300,
+            20px,
+            #252525
+          );
         }
-        .text_desck {
-          display: flex;
-          justify-content: space-between;
-          width: 440px;
-
-          .name {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            .name_p {
-              @include all.text(
-                'Poppins',
-                sans-serif,
-                'normal',
-                400,
-                1.25em,
-                #000
-              );
-              margin-bottom: 20px;
-            }
-          }
-          .price {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            .price_p {
-              margin-bottom: 20px;
-              @include all.text(
-                'Poppins',
-                sans-serif,
-                'normal',
-                400,
-                1.25em,
-                rgba(0, 0, 0, 0.6)
-              );
-            }
-          }
+        .text_price {
+          @include all.text(
+            'Poppins',
+            sans-serif,
+            'normal',
+            700,
+            16px,
+            #252525
+          );
         }
-
-        .border {
-          display: flex;
-          justify-content: space-around;
-          width: 440px;
-          align-items: center;
-          justify-content: flex-start;
+        .text_size {
+          width: 530px;
           height: 60px;
-          border: 1px solid rgba(0, 0, 0, 0.3);
-          margin: 10px 0 0 0;
-          .border_img {
-            margin: 0 15px;
-          }
-          .border_p {
+          border-radius: 15px;
+          border: 0.3px solid #c4c4c4;
+        }
+        .item_btn {
+          @include all.button(537px, 60px, #db66e4, 15px);
+          border: 1px solid #c192ee;
+          @include all.text(
+            'Poppins',
+            sans-serif,
+            'normal',
+            500,
+            18px,
+            #fbfbfb
+          );
+        }
+        .deck {
+          .text_deck_header {
             @include all.text(
               'Poppins',
               sans-serif,
               'normal',
               400,
-              1.125em,
-              #000
+              16px,
+              #252525
             );
           }
-        }
-        .item_btn {
-          @include all.button(282px, 48px, #db66e4, 10px);
-          @include all.text(
-            'Poppins',
-            sans-serif,
-            'normal',
-            400,
-            1.125em,
-            #fff
-          );
-          border: none;
-          margin-top: 36px;
+          .text_inTheDeck {
+            width: 200px;
+          }
+          .text_line {
+            margin-top: 17px;
+            border: 0.1px solid #c4c4c4;
+            width: 530px;
+          }
         }
       }
     }

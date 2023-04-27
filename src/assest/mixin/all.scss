@@ -29,6 +29,11 @@
   align-items: center;
   justify-content: center;
 }
+@mixin display($display, $align-items, $justify-content) {
+  display: $display;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
 @mixin displayJustify($justify) {
   display: flex;
   justify-content: $justify;

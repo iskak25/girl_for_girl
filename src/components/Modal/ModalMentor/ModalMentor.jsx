@@ -1,7 +1,6 @@
 import React from 'react'
 import modalStyle from '../ModalMentor/ModalMentor.module.scss'
 
-import { useNavigate } from 'react-router-dom'
 import {
   mentor_img,
   whatsapp_mentor,
@@ -12,8 +11,6 @@ import {
 } from '../../../assest/img'
 
 const ModalMentor = ({ activ, setActiv }) => {
-  const navigate = useNavigate()
-
   return (
     <>
       <div
@@ -38,17 +35,17 @@ const ModalMentor = ({ activ, setActiv }) => {
             <div className={modalStyle.item_list}>
               <img className={modalStyle.mentor_img} src={mentor_img} alt="" />
               <div className={modalStyle.mentor_admin}>
-                <img
+                {/* <img
                   onClick={() => navigate(`/editMentor`)}
                   className={modalStyle.mentor_admin_icon}
                   src={edit_icon}
                   alt="edit_icon"
-                />
-                {/* <img
+                /> */}
+                <img
                   className={modalStyle.mentor_img_admin_icon}
                   src={edit_icon}
                   alt="edit_icon"
-                /> */}
+                />
               </div>
             </div>
             <div className={modalStyle.item_list}>

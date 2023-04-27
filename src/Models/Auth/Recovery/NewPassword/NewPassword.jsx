@@ -4,14 +4,13 @@ import Text from '../../components/Text/Text'
 import newPasswordStyle from '../NewPassword/NewPassword.module.scss'
 import { newPassword } from '../../../../redux/features/recovery/recoverySlice'
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const NewPassword = () => {
   const dispatch = useDispatch()
   const posts = useSelector((state) => state.recovery.value)
   // useEffect(() => {
-  //   console.log(posts)
   // }, [posts])
-  // console.log(posts)
 
   const [password, setPassword] = useState('')
   const [confirmPass, setConfirmPass] = useState('')
@@ -48,14 +47,14 @@ const NewPassword = () => {
               name="phoneNumber"
             />
           </div>
-          {/* <Link to="/"> */}
-          <button
-            className={newPasswordStyle.btn}
-            onClick={() => dispatch(newPassword(data))}
-          >
-            Восстановить
-          </button>
-          {/* </Link> */}
+          <Link to="/">
+            <button
+              className={newPasswordStyle.btn}
+              onClick={() => dispatch(newPassword(data))}
+            >
+              Восстановить
+            </button>
+          </Link>
           <Text
             className={newPasswordStyle.text}
             p={'вспомнили пароль? '}

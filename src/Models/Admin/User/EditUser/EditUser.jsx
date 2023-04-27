@@ -1,46 +1,101 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useState, useEffect, useMemo } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
+import { getAUserIdFunction } from '../../../../redux/features/auth/GetUserIdSlice'
 import { steps } from '../../../../redux/features/components'
 import editStyle from './EditUser.module.scss'
 
 const EditUser = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { id } = useParams()
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.getIdUser,
+  )
+  const [userData, setUserData] = useState([])
+
+  // const handleInput = (e, product, setUserData) => {
+  //   let obj = {
+  //     ...product,
+  //     [e.target.name]: e.target.value,
+  //   }
+  //   setUserData(obj)
+  // }
+
+  const userID = useSelector((state) => state.getIdUser.userId)
+
+  useEffect(() => {
+    // dispatch(getAUserIdFunction(id))
+  }, [])
+
+  if (isLoading) {
+    return <h2>Loading...</h2>
+  }
 
   return (
     <>
       <div className={editStyle.container}>
         <div className={editStyle.content}>
-          <h3 className={editStyle.h3}>Алия Алиева</h3>
+          <h3 className={editStyle.h3}>
+            {userID.firstName}
+            {userID.lastName}
+          </h3>
           <div className={editStyle.item}>
             <p className={editStyle.p_deck}>Электронная почта</p>
-            <p className={editStyle.p}>example@gmail.com</p>
+            <input
+              // onChange={(e) => handleInput(e, userID, setUserData)}
+              name="email"
+              value={userID.email}
+              className={editStyle.p}
+            />
           </div>
           <div className={editStyle.item}>
             <p className={editStyle.p_deck}>Телефон</p>
-            <p className={editStyle.p}>0709815969</p>
+            <input
+              // onChange={(e) => handleInput(e, userID, setUserData)}
+              name="phoneNumber"
+              className={editStyle.p}
+              value={userID.phoneNumber}
+            />
           </div>
           <div className={editStyle.item}>
-            <p className={editStyle.p_deck}>Пароль</p>
-            <p className={editStyle.p_violet}>Нажмите, чтобы изменить пароль</p>
+            {/* <p className={editStyle.p_deck}>Пароль</p> */}
+            {/* <p className={editStyle.p_violet}>{userID}</p> */}
           </div>
           <div className={editStyle.item}>
             <p className={editStyle.p_deck}>Имя</p>
-            <p className={editStyle.p}>Алия</p>
+            <input
+              // onChange={(e) => handleInput(e, userID, setUserData)}
+              name="firstName"
+              value={userID.firstName}
+              className={editStyle.p}
+            />
           </div>
           <div className={editStyle.item}>
             <p className={editStyle.p_deck}>Фамилия</p>
-            <p className={editStyle.p}>Алиева</p>
+            <input
+              // onChange={(e) => handleInput(e, userID, setUserData)}
+              name="lastName"
+              value={userID.lastName}
+              className={editStyle.p}
+            />
           </div>
           <div className={editStyle.item}>
             <p className={editStyle.p_deck}>Регион</p>
-            <p className={editStyle.p}>Бишкек</p>
+            <input
+              name="region"
+              // onChange={(e) => handleInput(e, userID, setUserData)}
+              value={userID.region.name}
+              className={editStyle.p}
+            />
           </div>
           <div className={editStyle.item}>
             <button className={editStyle.button_veolet}>
               Обновить профиль
             </button>
             <button
-              onClick={() => dispatch(steps(2))}
+              onClick={() => navigate('/admin')}
               className={editStyle.button_white}
             >
               Отмена

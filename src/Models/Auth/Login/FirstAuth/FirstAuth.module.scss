@@ -12,6 +12,12 @@
         @include all.authInput(365px, 60px, #fff);
         border: 1px solid #c192ee;
       }
+      select {
+        @include all.authInput(385px, 60px, #fff);
+        margin-right: 30px;
+
+        padding: 0 40px;
+      }
       .input_big {
         @include all.authInput(740px, 60px, #fff);
         border: none;

@@ -22,7 +22,6 @@ const FirstRecovery = (props) => {
   function newPages() {
     dispatch(checkUser(userData))
     props.onNext()
-    console.log(vales.email)
   }
 
   const dispatch = useDispatch()

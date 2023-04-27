@@ -1,0 +1,32 @@
+@use '../../../assest/mixin/all.scss' as all;
+.container {
+  .content {
+    @include all.displayCenter();
+    //  display: flex;
+    margin: 60px 0 0;
+    .text {
+      width: 636px;
+
+      .text_h3 {
+        line-height: 120%;
+        @include all.text('Poppins', sans-serif, 'normal', 500, 70px, #db66e4);
+      }
+      .text_p {
+        margin: 35px 0;
+        line-height: 34px;
+        @include all.text('Poppins', sans-serif, 'normal', 400, 20px, #848488);
+      }
+      .text_button {
+        @include all.button(217px, 56px, #c192ee, 15px);
+        @include all.text('Poppins', sans-serif, 'normal', 600, 18px, #fbfbfb);
+        border: none;
+      }
+    }
+    .container_img {
+      .img {
+        width: 522px;
+        height: 550px;
+      }
+    }
+  }
+}

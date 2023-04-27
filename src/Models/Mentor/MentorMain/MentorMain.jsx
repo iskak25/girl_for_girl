@@ -7,7 +7,7 @@ const MentorMain = () => {
     <>
       <div className={mentorMainStyle.container}>
         <div className={mentorMainStyle.content}>
-          <Navbar />
+          {/* <Navbar /> */}
           <div className={mentorMainStyle.main_text}>
             <h2 className={mentorMainStyle.main_text_h2}>
               Стань участником

@@ -1,23 +1,31 @@
 const Endpoints = {
-  BASE_URL: {
-    url: 'https://g4g.herokuapp.com',
-  },
+  BASE_URL: 'https://g4g.herokuapp.com/api/v1',
+
   AUTH: {
-    LOGIN: '/api/v1/auth/login',
-    REGISTER: '/api/v1/auth/register',
-    REFRESH: '/api/v1/auth/refresh',
-    ACTIV: '/api/v1/auth/active/',
-    GETREGION: '/api/v1/regions',
+    LOGIN: '/auth/login',
+    REGISTER: '/auth/register',
+    REFRESH: '/auth/refresh',
+    ACTIV: '/auth/active/',
+    GETREGION: '/regions',
   },
   RECOVERY: {
-    CHECKEMAIL: '/api/v1/password/forgot/',
-    NEWCODE: '/api/v1/password/reset/',
-    NEWPASSWORD: '/api/v1/password/reset/',
+    CHECKEMAIL: '/password/forgot/',
+    NEWCODE: '/password/reset/',
+    NEWPASSWORD: '/password/reset/',
   },
   ADDPRODUCTS: {
-    ADDFILE: '/api/v1/file/upload/',
-    ADDPRODUCT: '/api/v1/product/',
+    PRODUCT: '/product/',
+    ADDFILE: '/image/upload/product/',
   },
+  GETUSER: {
+    GETUSERID: '/user/',
+    GETALLUSER: '/user',
+  },
+  REGIONS: '/regions',
+  BASKET: '/myBasket/',
+  QUETIONS: '/questions',
+  ROLE: '/role/',
+  ORDER: '/order',
 }
 
 export default Endpoints

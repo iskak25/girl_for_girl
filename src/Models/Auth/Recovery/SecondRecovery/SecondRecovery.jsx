@@ -23,7 +23,6 @@ const SecondRecovery = (props) => {
   function newPage() {
     dispatch(checkCodeAction(pinCode))
     dispatch(newCode(pinCode))
-    console.log('gg')
     props.onNext()
   }
 

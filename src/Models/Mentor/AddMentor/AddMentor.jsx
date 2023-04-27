@@ -11,8 +11,8 @@ const AddMentor = () => {
     description: '',
   })
   const dispatch = useDispatch()
+  const [selectFile, setSelectFile] = useState(null)
   const posts = useSelector((state) => state.mentor.mentors)
-  console.log(posts)
 
   const handleInput = (e, product, setProduct) => {
     let obj = {
@@ -21,6 +21,14 @@ const AddMentor = () => {
     }
     setProduct(obj)
   }
+  const handleChange = (e) => {
+    setSelectFile(e.target.files[0])
+  }
+  const handleDeleteFile = () => {
+    setSelectFile(null)
+    // handleUpload()
+  }
+
   return (
     <div>
       <Box sx={{ bgcolor: '#fff', height: '50vh', padding: '20vh' }}>
@@ -66,7 +74,34 @@ const AddMentor = () => {
               variant="outlined"
               name="description"
               onChange={(e) => handleInput(e, product, setProduct)}
-            />{' '}
+            />
+            <Button
+              variant="contained"
+              disabled={selectFile ? 'disabled' : ''}
+              component="label"
+              sx={{ mb: '5px' }}
+            >
+              Прикрепить файл
+              <input
+                hidden
+                type="file"
+                onChange={handleChange}
+                accept="image/*,.png,.jpg,"
+              />
+            </Button>
+            {selectFile ? (
+              <Button
+                onClick={handleDeleteFile}
+                color="primary"
+                variant="contained"
+                component="label"
+                sx={{ bgcolor: '#FF0000', mb: '5px' }}
+              >
+                удалит файл
+              </Button>
+            ) : (
+              ''
+            )}
             <Stack
               direction="row"
               spacing={2}

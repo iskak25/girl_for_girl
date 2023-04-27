@@ -1,9 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import authReducer from '../features/auth/AuthSlice'
+import GetUserIdSlice from '../features/auth/GetUserIdSlice'
+import GetUsersSlice from '../features/auth/GetUsersSlice'
 import UserActivlice from '../features/auth/UserActivlice'
 import activingSlice from '../features/components'
-import { counterSlice } from '../features/couter/couter'
 import mentorSlice from '../features/mentorCrud/mentorSlice'
+import basketSlice from '../features/product/basket'
+// import { basketSlice } from '../features/product/basket'
 import productCrudSlice from '../features/product/productCrudSlice'
 import RecoveryUser from '../features/recovery/recoverySlice'
 // import { mentorSlice } from '../features/mentorCrud/mentorSlice'
@@ -17,7 +20,10 @@ export const rootStore = configureStore({
     mentor: mentorSlice,
     product: productCrudSlice,
     recovery: RecoveryUser,
-    couter: counterSlice,
+    getUsers: GetUsersSlice,
+    getIdUser: GetUserIdSlice,
+    basket: basketSlice,
+    // middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
   },
 })
 

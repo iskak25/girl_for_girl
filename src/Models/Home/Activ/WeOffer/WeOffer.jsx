@@ -26,7 +26,6 @@ const WeOffer = () => {
           </div>
           <div className={offerStyle.content}>
             {/* {list.map((item, id) => {
-              console.log(id)
             })} */}
             <div className={offerStyle.content_item}>
               <Accordion

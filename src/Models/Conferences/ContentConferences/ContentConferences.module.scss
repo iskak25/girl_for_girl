@@ -1,0 +1,105 @@
+@use '../../../assest/mixin/all.scss' as all;
+
+.container {
+  background-color: #fad3e7;
+  width: 100%;
+  .content {
+    margin: 0 auto;
+    height: 1193px;
+    width: 1440px;
+    .header_text {
+      @include all.displayCenter();
+      flex-direction: column;
+      .header_text__h3 {
+        margin-top: 86px;
+        @include all.text('Poppins', sans-serif, 'normal', 700, 40px, #000);
+        line-height: 60px;
+      }
+      .header_text__p {
+        margin-top: 12px;
+        width: 750px;
+        text-align: center;
+        @include all.text('Poppins', sans-serif, 'normal', 400, 16px, #4f4f4f);
+      }
+    }
+
+    .data {
+      margin: 0 auto;
+      @include all.text('Poppins', sans-serif, 'normal', 600, 16px, #000);
+      text-align: center;
+      margin-top: 85px;
+      border-bottom: 4px solid #000;
+      width: 99px;
+      margin-bottom: 60px;
+    }
+    .item {
+      display: flex;
+      margin-bottom: 40px;
+      .avatar {
+        border-radius: 100%;
+        width: 70px;
+        height: 70px;
+        margin-right: 30px;
+      }
+      .item_list {
+        .item_time {
+          margin-bottom: 8px;
+          display: flex;
+          .item_time_img {
+            margin-right: 9px;
+          }
+          .item_time_p {
+            @include all.text(
+              'Poppins',
+              sans-serif,
+              'normal',
+              400,
+              14px,
+              #db66e4
+            );
+          }
+        }
+
+        .item_subject {
+          @include all.text('Poppins', sans-serif, 'normal', 700, 20px, #000);
+          margin-bottom: 4px;
+        }
+        .item_name {
+          margin-bottom: 16px;
+
+          @include all.text(
+            'Poppins',
+            sans-serif,
+            'normal',
+            400,
+            12px,
+            #db66e4
+          );
+        }
+        .item_desk {
+          @include all.text(
+            'Poppins',
+            sans-serif,
+            'normal',
+            400,
+            16px,
+            #4f4f4f
+          );
+          width: 860px;
+        }
+      }
+    }
+    .coffee {
+      margin: 0 auto;
+      @include all.displayCenter();
+      width: 198px;
+      height: 57px;
+      border: 1px solid #c192ee;
+      border-radius: 800px;
+      .coffee_p {
+        margin-left: 12px;
+        @include all.text('Poppins', sans-serif, 'normal', 400, 14px, #db66e4);
+      }
+    }
+  }
+}

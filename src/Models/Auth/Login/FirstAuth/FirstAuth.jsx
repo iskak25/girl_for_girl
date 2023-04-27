@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Formik } from 'formik'
 import * as yup from 'yup'
 import {
+  getRegion,
   reset,
-  // signin,
   signup,
 } from '../../../../redux/features/auth/AuthSlice'
-import { increment } from '../../../../redux/features/components'
+
 const FirstAuth = () => {
   const [lastName, setLastName] = useState('')
   const [firstName, setFirstName] = useState('')
@@ -18,7 +18,7 @@ const FirstAuth = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPass, setConfirmPass] = useState('')
-  const [region_id, setRegion_id] = useState(1)
+  const [region_id, setRegion_id] = useState('')
 
   const vales = {
     email,
@@ -33,15 +33,57 @@ const FirstAuth = () => {
   const userData = JSON.stringify(vales, null, 2)
 
   const dispatch = useDispatch()
+  //TODO function sigup
   function newPages() {
-    console.log('asd')
+    const res = dispatch(signup(userData))
+    //!
+    // console.log(res)
+    // console.log(
+    //   (Promise.getInfo = function (arg) {
+    //     const pending = {}
+    //     let status, value
+    //     Promise.race([arg, pending]).then(
+    //       (x) => {
+    //         status = 'fulfilled'
+    //         value = x
+    //       },
+    //       (x) => {
+    //         status = 'rejected'
+    //         value = x
+    //       },
+    //     )
+    //     process._tickCallback() // run microtasks right now
+    //     if (value === pending) return { status: 'pending' }
+    //     return { status, value }
+    //   }),
+    // )
+    // function promiseState(p) {
+    //   const t = {}
+    //   return Promise.race([p, t]).then(
+    //     (v) => (v === t ? 'pending' : 'fulfilled'),
+    //     () => 'rejected',
+    //   )
+    // }
 
-    dispatch(signup(userData))
-    // props.onNext()
+    // promiseState(res).then((state) => console.log(state)) // fulfilled
+    // promiseState(res).then((state) => console.log(state)) // rejected
+    // promiseState(c).then((state) => console.log(state)) // pending
+
+    // if (res) {
+    //   dispatch(increment())
+    // }
   }
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  //TODO get regions
+
+  //TODO get regions
+  useEffect(() => {
+    dispatch(getRegion())
+  }, [])
+  const { region, user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth,
   )
+  //TODO get regions
+
   useEffect(() => {
     if (isError) {
       toast.error(message)
@@ -55,7 +97,6 @@ const FirstAuth = () => {
 
     dispatch(reset())
   }, [user, isError, isSuccess, message, dispatch])
-  console.log()
 
   // const validShema = yup.object().shape({
   //   firstName: yup
@@ -81,9 +122,12 @@ const FirstAuth = () => {
   //   .oneOf([true], 'Необходимо согласие!'),
   // })
 
-  // if (isLoading) {
-  //   return <h2>Loading...</h2>
-  // }
+  //todo   wait
+
+  if (isLoading) {
+    return <h2>Loading...</h2>
+  }
+
   return (
     <>
       {/* <Formik
@@ -164,14 +208,32 @@ const FirstAuth = () => {
             />
           </div>
           <div className={firstStyle.first_item}>
-            <input
+            <select
+              onChange={(e) => setRegion_id(e.target.value)}
+              value={region_id}
+              name="cars"
+              id="cars"
+            >
+              {region
+                ? region?.map((item) => (
+                    <option
+                      value={item?.id}
+                      selected={item?.id}
+                      onChange={(e) => setRegion_id(e.target.value)}
+                    >
+                      {item?.name}
+                    </option>
+                  ))
+                : ''}
+            </select>
+            {/* <input
               onChange={(e) => setRegion_id(e.target.value)}
               className={firstStyle.input_small}
               type="text"
               placeholder="место проживания"
               value={region_id}
               name="placeOfBirth"
-            />
+            /> */}
             <input
               className={firstStyle.input_small}
               onChange={(e) => setConfirmPass(e.target.value)}
@@ -194,8 +256,8 @@ const FirstAuth = () => {
             <button
               // disabled={!isValid && !dirty}
               // onClick={handleSubmit}
-              // onClick={() => dispatch(signup(userData))}
-              onClick={() => dispatch(increment())}
+              // onClick={() => dispatch(increment())}
+              onClick={newPages}
               type="submit"
               className={firstStyle.first_btn}
             >

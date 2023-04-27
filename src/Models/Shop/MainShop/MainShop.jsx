@@ -1,11 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import mainShopStyle from './MainShop.module.scss'
+import ProductCart from '../Product/ProductCart/ProductCart'
 import ModalShop from '../../../components/Modal/ModalShop/ModalShop'
-import { plus_icon, shop1, shop2, shop3, shop4 } from '../../../assest/img'
+import { basket, plus_icon } from '../../../assest/img'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { GetAllProducts } from '../../../redux/features/product/productCrudSlice'
+import Seleton from '../Product/ProductCart/seleton'
 
 const MainShop = () => {
+  const dispatch = useDispatch()
+  const { isLoading } = useSelector((state) => state.product)
+  const userRole = useSelector((state) => state.getIdUser.role)
   const [modalActiv, setModalActiv] = useState(false)
+
+  useEffect(() => {
+    dispatch(GetAllProducts())
+  }, [])
+
+  const skeletons = [...new Array(4)].map((_, index) => <Seleton key={index} />)
+
+  if (isLoading) {
+    return skeletons
+  }
+  console.log(modalActiv)
 
   return (
     <>
@@ -15,89 +33,30 @@ const MainShop = () => {
         setActiv={setModalActiv}
       />
       <div className={modalActiv ? 'dislay:"none"' : mainShopStyle.container}>
-        <Link to="/addProduct">
-          <h2 className={mainShopStyle.plus_h2}>
-            добавить продукт
-            <img
-              className={mainShopStyle.plus_img}
-              src={plus_icon}
-              alt="plus_icon"
-            />
-          </h2>
-        </Link>
-        <div className={mainShopStyle.content}>
-          <div
-            onClick={() => setModalActiv(true)}
-            className={mainShopStyle.item}
-          >
-            <div className={mainShopStyle.item_header}>
-              <img className={mainShopStyle.item_img} src={shop1} alt="shop1" />
-              <div className={mainShopStyle.list}>
-                <div className={mainShopStyle.text}>
-                  <h4 className={mainShopStyle.text_h4}>Толстовка Весна</h4>
+        <div className={mainShopStyle.header}>
+          {userRole?.name === 'ADMIN' ? (
+            <Link to="/addProduct">
+              <h2 className={mainShopStyle.plus_h2}>
+                добавить продукт
+                <img
+                  className={mainShopStyle.plus_img}
+                  src={plus_icon}
+                  alt="plus_icon"
+                />
+              </h2>
+            </Link>
+          ) : (
+            <div></div>
+          )}
 
-                  <div className={mainShopStyle.text_price}>
-                    <p className={mainShopStyle.text_price__activ}>2990 сом</p>
-                  </div>
-                </div>
-              </div>
+          <Link to="/basket">
+            <div className={mainShopStyle.basket}>
+              <img className={mainShopStyle.basket_img} src={basket} alt="" />
+              <p className={mainShopStyle.basket_p}> Перейти в корзину</p>
             </div>
-          </div>
-          <div
-            onClick={() => setModalActiv(true)}
-            className={mainShopStyle.item}
-          >
-            <div className={mainShopStyle.item_header}>
-              <img className={mainShopStyle.item_img} src={shop2} alt="shop2" />
-              <div className={mainShopStyle.list}>
-                <div className={mainShopStyle.text}>
-                  <h4 className={mainShopStyle.text_h4}>Куртка Весна</h4>
-
-                  <div className={mainShopStyle.text_price}>
-                    <p className={mainShopStyle.text_price__activ}>3500 сом</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            onClick={() => setModalActiv(true)}
-            className={mainShopStyle.item}
-          >
-            <div className={mainShopStyle.item_header}>
-              <img className={mainShopStyle.item_img} src={shop3} alt="shop3" />
-              <div className={mainShopStyle.list}>
-                <div className={mainShopStyle.text}>
-                  <h4 className={mainShopStyle.text_h4}>Комбенизон Лето</h4>
-
-                  <div className={mainShopStyle.text_price}>
-                    <p className={mainShopStyle.text_price__activ}>2990 сом</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            onClick={() => setModalActiv(true)}
-            className={mainShopStyle.item}
-          >
-            <div className={mainShopStyle.item_header}>
-              <img className={mainShopStyle.item_img} src={shop4} alt="shop4" />
-              <div className={mainShopStyle.list}>
-                <div className={mainShopStyle.text}>
-                  <h4 className={mainShopStyle.text_h4}>Рубашка Весна</h4>
-
-                  <div className={mainShopStyle.text_price}>
-                    <p className={mainShopStyle.text_price__activ}>2990 сом</p>
-                    <p className={mainShopStyle.text_noPrice}>
-                      <s></s>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </Link>
         </div>
+        {isLoading ? skeletons : <ProductCart setModalActiv={setModalActiv} />}
       </div>
     </>
   )

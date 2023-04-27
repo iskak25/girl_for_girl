@@ -38,7 +38,6 @@ const SecondAuth = () => {
   const dispatch = useDispatch()
 
   const codes = useSelector((state) => state.auth.activ)
-  console.log(codes)
   useEffect(() => {
     dispatch(activUser())
   }, [dispatch])

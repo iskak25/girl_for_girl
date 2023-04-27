@@ -1,0 +1,63 @@
+@use '../../../../assest/mixin/all.scss' as all;
+.container {
+  display: flex;
+  .hr {
+    margin-top: 150px;
+    margin-right: 27px;
+    height: 649px;
+    width: 2px;
+    background: #e6e6e6;
+    //   transform: matrix(0, 1, 1, 0, 0, 0);
+  }
+  background-color: #fafafa;
+  .content {
+    width: 1440px;
+    margin: 0 auto;
+
+    .item {
+      margin-top: 150px;
+      margin-bottom: 10px;
+      // display: flex;
+      @include all.display(flex, center, space-between);
+      width: 840px;
+      .item_p {
+        //   display: flex;
+        @include all.text('Poppins', sans-serif, 'normal', 700, 18px, #000);
+      }
+      .buttons {
+        display: flex;
+        .button_cancel {
+          @include all.button(152px, 50px, #fff, 15px);
+          @include all.text(
+            'Poppins',
+            sans-serif,
+            'normal',
+            500,
+            18px,
+            #db66e4
+          );
+          border: 1px solid #db66e4;
+        }
+        .button_save {
+          @include all.button(152px, 50px, #db66e4, 15px);
+          @include all.text('Poppins', sans-serif, 'normal', 600, 15px, #fff);
+          border: none;
+          margin-left: 15px;
+          margin-right: 40px;
+        }
+      }
+    }
+    .item_input {
+      margin-bottom: 13px;
+      .input_small {
+        margin-right: 15px;
+        @include all.authInput(365px, 60px, #fff);
+        border: none;
+      }
+      .input_big {
+        @include all.authInput(790px, 60px, #fff);
+        border: none;
+      }
+    }
+  }
+}

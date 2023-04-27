@@ -7,14 +7,13 @@ import UserPages from '../User/UserPages/UserPages'
 import UserSettings from '../User/UserSettings/UserSettings'
 import adminstyle from './Admin.module.scss'
 const Admin = () => {
-  const pages = [<UserPages />, <UserSettings />, <AllUser />, <EditUser />]
+  const pages = [<UserPages />, <UserSettings />, <AllUser />]
   const step = useSelector((state) => state.activ.step)
 
   return (
     <>
       <div className={adminstyle.container}>
         <AdminSteps />
-        {/* {body()} */}
         {pages[step]}
       </div>
     </>

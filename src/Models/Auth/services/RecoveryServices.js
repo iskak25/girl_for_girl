@@ -3,7 +3,7 @@ import Endpoints from '../../../api/Endpoints'
 
 const checkemail = async (email) => {
   const response = await axios.post(
-    `${Endpoints.BASE_URL.url}${Endpoints.RECOVERY.CHECKEMAIL}${email}`,
+    `${Endpoints.BASE_URL}${Endpoints.RECOVERY.CHECKEMAIL}${email}`,
     email,
   )
 
@@ -11,10 +11,8 @@ const checkemail = async (email) => {
 }
 
 const newPassword = async (data) => {
-  console.log(data)
-  console.log(data.posts)
   const response = await axios.post(
-    `${Endpoints.BASE_URL.url}${Endpoints.RECOVERY.NEWCODE}${data.posts}`,
+    `${Endpoints.BASE_URL}${Endpoints.RECOVERY.NEWCODE}${data.posts}`,
     data.userData,
     {
       headers: { 'Content-Type': 'application/json' },
@@ -26,7 +24,7 @@ const newPassword = async (data) => {
 
 const newCode = async (code) => {
   const response = await axios.get(
-    `${Endpoints.BASE_URL.url}${Endpoints.RECOVERY.NEWCODE}${code}`,
+    `${Endpoints.BASE_URL}${Endpoints.RECOVERY.NEWCODE}${code}`,
     code,
   )
 

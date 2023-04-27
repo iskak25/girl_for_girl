@@ -7,7 +7,6 @@ import isActivStyle from './IsActiv.module.scss'
 const IsActiv = () => {
   const dispatch = useDispatch()
   const activing = useSelector((state) => state.activ.stateActiv)
-  console.log(activing)
   return (
     <>
       <div className={isActivStyle.container}>

@@ -43,19 +43,32 @@ import header_img from './photo/header_img.png'
 
 import sadGirl from './photo/sadGirl.png'
 
-import shop1 from './photo/shop1.jpg'
-import shop2 from './photo/shop2.jpg'
-import shop3 from './photo/shop3.jpg'
-import shop4 from './photo/shop4.jpg'
-
 import plus_icon from './icon/plus_icon.png'
+import edit_pen_icon from './icon/edit_pen_icon.png'
+import basket from './icon/basket.svg'
+import delete_icon from './icon/delete.svg'
+import select_botton from './icon/select_botton.png'
+import conferencesHeader_img from './photo/ConferencesHeader.png'
+import time from './icon/time.svg'
+import avatar from './icon/Avatar.png'
+import coffee from './icon/coffee.svg'
+import vector_profile from './icon/vector_profile.png'
+import file_icon from './icon/file_icon.svg'
+import setting_icon_violet from './icon/setting_icon_violet.svg'
 
 export {
+  file_icon,
+  setting_icon_violet,
+  vector_profile,
+  coffee,
+  avatar,
+  time,
+  conferencesHeader_img,
+  select_botton,
+  basket,
+  edit_pen_icon,
+  delete_icon,
   plus_icon,
-  shop1,
-  shop2,
-  shop3,
-  shop4,
   sadGirl,
   header_img,
   mentor,

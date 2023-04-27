@@ -31,8 +31,6 @@ export const newPassword = createAsyncThunk(
   'recovery/newPassword',
   async (data, thunkAPI) => {
     try {
-      console.log(data)
-
       const res = await recoveryService.newPassword(data)
       if (res) {
       }

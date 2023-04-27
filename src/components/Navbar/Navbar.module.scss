@@ -41,19 +41,25 @@ li {
     align-items: center;
   }
 
-  .user_icon {
+  .admin {
+    @include all.displayCenter();
+    .user_icon {
+    }
+
+    .user_name {
+      @include all.text('Poppins', sans-serif, 'normal', 400, 20px, #db66e4);
+    }
   }
 
-  .user_name {
-    @include all.text('Poppins', sans-serif, 'normal', 400, 20px, #db66e4);
-  }
   .button {
-    @include all.button(211px, 59px, #000, 15px);
+    @include all.button(105px, 59px, #000, 15px);
     @include all.text('Poppins', sans-serif, 'normal', 400, 18px, #fbfbfb);
     border: 1px solid #fbfbfb;
+    margin-left: 5;
   }
   .button_activ {
-    @include all.button(211px, 59px, #db66e4, 15px);
+    margin-left: 5;
+    @include all.button(105px, 59px, #db66e4, 15px);
     @include all.text('Poppins', sans-serif, 'normal', 400, 18px, #fbfbfb);
     border: none;
   }

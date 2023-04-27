@@ -5,7 +5,7 @@ import Develepers from '../Models/Develepers/Develepers'
 const VideolessonsPages = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Develepers />
     </>
   )

@@ -6,8 +6,15 @@ import Header from '../Header/Header'
 import Form from '../Form/Form'
 import WeOffer from '../WeOffer/WeOffer'
 import Main from '../Main/Main'
+import { useEffect } from 'react'
 
 const ActivRoot = () => {
+  const user = JSON.parse(localStorage.getItem('user'))
+  if (user) {
+    // window.location.reload()
+  }
+
+  // console.log(user)
   return (
     <>
       <div className={activRootStyle.container}>

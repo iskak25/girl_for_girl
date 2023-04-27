@@ -1,15 +1,40 @@
-import { all } from 'axios'
 import React from 'react'
 import allStyle from './AllUser.module.scss'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { steps } from '../../../../redux/features/components'
 import { vector_left } from '../../../../assest/img'
+import { getAllUserFunction } from '../../../../redux/features/auth/GetUsersSlice'
+import { useEffect, useState, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { getAUserIdFunction } from '../../../../redux/features/auth/GetUserIdSlice'
 
 const AllUser = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.getUsers,
+  )
+
+  const [usersData, setUsersData] = useState([])
+  const users = useSelector((state) => state.getUsers.allUsers)
+
+  function editUser(id) {
+    dispatch(getAUserIdFunction(id))
+    navigate(`/editUser/${id}`)
+  }
+
+  useEffect(() => {
+    dispatch(getAllUserFunction())
+  }, [])
+
+  if (isLoading) {
+    return <h2>Loading...</h2>
+  }
 
   return (
     <div>
+      <button onClick={() => dispatch(getAllUserFunction())}></button>
+
       <div className={allStyle.container}>
         <div className={allStyle.content}>
           <div className={allStyle.pagination}>
@@ -30,182 +55,24 @@ const AllUser = () => {
               <p className={allStyle.item_block_p}>Действия</p>
             </div>
           </div>
-          <div className={allStyle.list}>
-            <p className={allStyle.list_name}>Алия</p>
-            <p className={allStyle.list_lastName}>Алиева</p>
-            <p className={allStyle.list_email}>example@gmail.com</p>
-            <p className={allStyle.list_phone}>0709815969</p>
-            <p className={allStyle.list_region}> Бишкек</p>
-            <div className={allStyle.list_block}>
-              <button
-                onClick={() => dispatch(steps(3))}
-                className={allStyle.list_block_button}
-              >
-                Изменить
-              </button>
-              <button className={allStyle.list_block_btn}>Блокировать</button>
+          {users?.map((user) => (
+            <div key={user.id} className={allStyle.list}>
+              <p className={allStyle.list_name}>{user.firstName}</p>
+              <p className={allStyle.list_lastName}>{user.lastName}</p>
+              <p className={allStyle.list_email}>{user.email}</p>
+              <p className={allStyle.list_phone}>{user.phoneNumber}</p>
+              <p className={allStyle.list_region}>{user.region.name}</p>
+              <div className={allStyle.list_block}>
+                <button
+                  onClick={() => editUser(user.id)}
+                  className={allStyle.list_block_button}
+                >
+                  Изменить
+                </button>
+                <button className={allStyle.list_block_btn}>Блокировать</button>
+              </div>
             </div>
-          </div>
-          <div className={allStyle.list}>
-            <p className={allStyle.list_name}>Алия</p>
-            <p className={allStyle.list_lastName}>Алиева</p>
-            <p className={allStyle.list_email}>example@gmail.com</p>
-            <p className={allStyle.list_phone}>0709815969</p>
-            <p className={allStyle.list_region}> Бишкек</p>
-            <div className={allStyle.list_block}>
-              <button
-                onClick={() => dispatch(steps(3))}
-                className={allStyle.list_block_button}
-              >
-                Изменить
-              </button>
-              <button className={allStyle.list_block_btn}>Блокировать</button>
-            </div>
-          </div>{' '}
-          <div className={allStyle.list}>
-            <p className={allStyle.list_name}>Алия</p>
-            <p className={allStyle.list_lastName}>Алиева</p>
-            <p className={allStyle.list_email}>example@gmail.com</p>
-            <p className={allStyle.list_phone}>0709815969</p>
-            <p className={allStyle.list_region}> Бишкек</p>
-            <div className={allStyle.list_block}>
-              <button
-                onClick={() => dispatch(steps(3))}
-                className={allStyle.list_block_button}
-              >
-                Изменить
-              </button>
-              <button className={allStyle.list_block_btn}>Блокировать</button>
-            </div>
-          </div>{' '}
-          <div className={allStyle.list}>
-            <p className={allStyle.list_name}>Алия</p>
-            <p className={allStyle.list_lastName}>Алиева</p>
-            <p className={allStyle.list_email}>example@gmail.com</p>
-            <p className={allStyle.list_phone}>0709815969</p>
-            <p className={allStyle.list_region}> Бишкек</p>
-            <div className={allStyle.list_block}>
-              <button
-                onClick={() => dispatch(steps(3))}
-                className={allStyle.list_block_button}
-              >
-                Изменить
-              </button>
-              <button className={allStyle.list_block_btn}>Блокировать</button>
-            </div>
-          </div>{' '}
-          <div className={allStyle.list}>
-            <p className={allStyle.list_name}>Алия</p>
-            <p className={allStyle.list_lastName}>Алиева</p>
-            <p className={allStyle.list_email}>example@gmail.com</p>
-            <p className={allStyle.list_phone}>0709815969</p>
-            <p className={allStyle.list_region}> Бишкек</p>
-            <div className={allStyle.list_block}>
-              <button
-                onClick={() => dispatch(steps(3))}
-                className={allStyle.list_block_button}
-              >
-                Изменить
-              </button>
-              <button className={allStyle.list_block_btn}>Блокировать</button>
-            </div>
-          </div>{' '}
-          <div className={allStyle.list}>
-            <p className={allStyle.list_name}>Алия</p>
-            <p className={allStyle.list_lastName}>Алиева</p>
-            <p className={allStyle.list_email}>example@gmail.com</p>
-            <p className={allStyle.list_phone}>0709815969</p>
-            <p className={allStyle.list_region}> Бишкек</p>
-            <div className={allStyle.list_block}>
-              <button
-                onClick={() => dispatch(steps(3))}
-                className={allStyle.list_block_button}
-              >
-                Изменить
-              </button>
-              <button className={allStyle.list_block_btn}>Блокировать</button>
-            </div>
-          </div>{' '}
-          <div className={allStyle.list}>
-            <p className={allStyle.list_name}>Алия</p>
-            <p className={allStyle.list_lastName}>Алиева</p>
-            <p className={allStyle.list_email}>example@gmail.com</p>
-            <p className={allStyle.list_phone}>0709815969</p>
-            <p className={allStyle.list_region}> Бишкек</p>
-            <div className={allStyle.list_block}>
-              <button
-                onClick={() => dispatch(steps(3))}
-                className={allStyle.list_block_button}
-              >
-                Изменить
-              </button>
-              <button className={allStyle.list_block_btn}>Блокировать</button>
-            </div>
-          </div>{' '}
-          <div className={allStyle.list}>
-            <p className={allStyle.list_name}>Алия</p>
-            <p className={allStyle.list_lastName}>Алиева</p>
-            <p className={allStyle.list_email}>example@gmail.com</p>
-            <p className={allStyle.list_phone}>0709815969</p>
-            <p className={allStyle.list_region}> Бишкек</p>
-            <div className={allStyle.list_block}>
-              <button
-                onClick={() => dispatch(steps(3))}
-                className={allStyle.list_block_button}
-              >
-                Изменить
-              </button>
-              <button className={allStyle.list_block_btn}>Блокировать</button>
-            </div>
-          </div>{' '}
-          <div className={allStyle.list}>
-            <p className={allStyle.list_name}>Алия</p>
-            <p className={allStyle.list_lastName}>Алиева</p>
-            <p className={allStyle.list_email}>example@gmail.com</p>
-            <p className={allStyle.list_phone}>0709815969</p>
-            <p className={allStyle.list_region}> Бишкек</p>
-            <div className={allStyle.list_block}>
-              <button
-                onClick={() => dispatch(steps(3))}
-                className={allStyle.list_block_button}
-              >
-                Изменить
-              </button>
-              <button className={allStyle.list_block_btn}>Блокировать</button>
-            </div>
-          </div>{' '}
-          <div className={allStyle.list}>
-            <p className={allStyle.list_name}>Алия</p>
-            <p className={allStyle.list_lastName}>Алиева</p>
-            <p className={allStyle.list_email}>example@gmail.com</p>
-            <p className={allStyle.list_phone}>0709815969</p>
-            <p className={allStyle.list_region}> Бишкек</p>
-            <div className={allStyle.list_block}>
-              <button
-                onClick={() => dispatch(steps(3))}
-                className={allStyle.list_block_button}
-              >
-                Изменить
-              </button>
-              <button className={allStyle.list_block_btn}>Блокировать</button>
-            </div>
-          </div>{' '}
-          <div className={allStyle.list}>
-            <p className={allStyle.list_name}>Алия</p>
-            <p className={allStyle.list_lastName}>Алиева</p>
-            <p className={allStyle.list_email}>example@gmail.com</p>
-            <p className={allStyle.list_phone}>0709815969</p>
-            <p className={allStyle.list_region}> Бишкек</p>
-            <div className={allStyle.list_block}>
-              <button
-                onClick={() => dispatch(steps(3))}
-                className={allStyle.list_block_button}
-              >
-                Изменить
-              </button>
-              <button className={allStyle.list_block_btn}>Блокировать</button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

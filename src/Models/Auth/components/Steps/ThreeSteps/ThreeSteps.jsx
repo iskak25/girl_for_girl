@@ -1,11 +1,14 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-// import { stepsMinus } from '../../../../../redux/features/components'
+import { useDispatch, useSelector } from 'react-redux'
+import { decrement } from '../../../../../redux/features/components'
+
 import theeStepsStyle from './ThreeSteps.module.scss'
 
 const ThreeSteps = (props) => {
   const items = [0, 1, 2]
   const dispatch = useDispatch()
+
+  const step = useSelector((state) => state.activ.step)
 
   return (
     <>
@@ -13,7 +16,7 @@ const ThreeSteps = (props) => {
         <div className={theeStepsStyle.button}>
           {props.page ? (
             <button
-              // onClick={dispatch(stepsMinus())}
+              onClick={() => dispatch(decrement())}
               className={theeStepsStyle.btn}
             >
               назад

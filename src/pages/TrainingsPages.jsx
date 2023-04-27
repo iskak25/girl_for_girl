@@ -7,7 +7,7 @@ import TrainingsRoot from '../Models/Trainings/TrainingsRoot/TrainingsRoot'
 const TrainingsPages = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <TrainingsRoot />
       <Footer />
     </div>

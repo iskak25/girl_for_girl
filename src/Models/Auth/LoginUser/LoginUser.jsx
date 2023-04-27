@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 import { signin } from '../../../redux/features/auth/AuthSlice'
 import TwoSteps from '../components/Steps/TwoSteps/TwoSteps'
 import Text from '../components/Text/Text'
@@ -9,17 +9,29 @@ import loginUserStyle from '../LoginUser/LoginUser.module.scss'
 
 const LoginUser = () => {
   const [step, setStep] = useState(0)
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth,
+  )
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  function newPages() {
+    dispatch(signin(userData))
+    navigate('/')
+  }
 
   const vales = {
     email,
     password,
   }
   const userData = JSON.stringify(vales, null, 2)
+  if (isLoading) {
+    return <h2>Loading...</h2>
+  }
   return (
     <>
       <div className={loginUserStyle.loginUser_container}>
@@ -48,15 +60,13 @@ const LoginUser = () => {
               </div>
             </div>
             <div className={loginUserStyle.loginUser_button}>
-              <Link to="/">
-                <button
-                  className={loginUserStyle.loginUser_btn}
-                  onClick={() => dispatch(signin(userData))}
-                  value={'Войти'}
-                >
-                  Войти
-                </button>
-              </Link>
+              <button
+                className={loginUserStyle.loginUser_btn}
+                onClick={newPages}
+                value={'Войти'}
+              >
+                Войти
+              </button>
             </div>
             <div className={loginUserStyle.loginUser_text}>
               <Text

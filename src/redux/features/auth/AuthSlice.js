@@ -1,11 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import authService from '../../../Models/Auth/services/AuthServices'
+import { useDispatch, useSelector } from 'react-redux'
+import { json, useNavigate } from 'react-router-dom'
+import useSteps from '../../../hooks/hooks'
+import authService, {
+  AuthServiceGet,
+} from '../../../Models/Auth/services/AuthServices'
+import { increment, steps } from '../components'
 
 // Get user from LocalStorage
 
 const user = JSON.parse(localStorage.getItem('token'))
 
 const initialState = {
+  region: '',
   user: user ? user : null,
   isError: false,
   isSuccess: false,
@@ -15,12 +22,10 @@ const initialState = {
 
 // get region
 export const getRegion = createAsyncThunk(
-  'auth/signup',
-  async (user, thunkAPI) => {
+  'auth/getRegion',
+  async (thunkAPI) => {
     try {
-      console.log('as')
-      return await authService.getRegion(user)
-      // props.onNext()
+      return await authService.getRegion()
     } catch (error) {
       const message =
         (error.response &&
@@ -37,10 +42,10 @@ export const getRegion = createAsyncThunk(
 export const signup = createAsyncThunk(
   'auth/signup',
   async (user, thunkAPI) => {
+    // const dispatch = useDispatch()
     try {
-      console.log('as')
-      return await authService.signup(user)
-      // props.onNext()
+      const res = await authService.signup(user)
+      return res
     } catch (error) {
       const message =
         (error.response &&
@@ -57,9 +62,12 @@ export const signup = createAsyncThunk(
 export const signin = createAsyncThunk(
   'auth/signin',
   async (user, thunkAPI) => {
+    // const navigate = useNavigate()
+
     try {
       const res = await authService.signin(user)
       if (res) {
+        // navigate('/')
       }
       return res
     } catch (error) {
@@ -115,6 +123,20 @@ export const authSlice = createSlice({
         state.isError = true
         state.message = action.payload
         state.user = null
+      })
+      .addCase(getRegion.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getRegion.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.region = action.payload
+      })
+      .addCase(getRegion.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+        state.region = null
       })
   },
 })

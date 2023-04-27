@@ -6,7 +6,7 @@ import Admin from '../Models/Admin/Admin/Admin'
 const AdminPages = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Admin />
       <Footer />
     </div>

@@ -6,7 +6,7 @@ import ShopRoot from '../Models/Shop/ShopRoot/ShopRoot'
 const ShopPages = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <ShopRoot />
       <Footer />
     </>

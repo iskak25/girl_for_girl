@@ -9,7 +9,7 @@ const Home = () => {
   const activing = useSelector((state) => state.activ.stateActiv)
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
 
       {activing ? (
         <>

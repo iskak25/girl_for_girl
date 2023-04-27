@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu'
 import {
@@ -23,7 +23,14 @@ import {
   flag_kyrgyzstan,
   user_icon,
   FlagRuss,
+  select_botton,
 } from '../../assest/img'
+import { useState } from 'react'
+import {
+  getAUserIdFunction,
+  getRoleUser,
+} from '../../redux/features/auth/GetUserIdSlice'
+import { useEffect } from 'react'
 
 const pages = [
   { page: 'Главная', link: '/' },
@@ -35,14 +42,39 @@ const pages = [
 ]
 
 const Navbar = () => {
+  const dispatch = useDispatch()
+  const getUser = useSelector((state) => state.getIdUser.userId)
+  const userRole = useSelector((state) => state.getIdUser.role)
   const [age, setAge] = React.useState('')
+  const [user, setUser] = React.useState(localStorage.getItem('user'))
+  const [userAuth, setUserAuth] = React.useState(
+    localStorage.getItem('authUser'),
+  )
+  const userFromLS = JSON.parse(localStorage.getItem('user'))
+  const whyAuth = JSON.parse(localStorage.getItem('authUser'))
+  useEffect(() => {
+    setUser(userFromLS)
+    setUserAuth(whyAuth)
+  }, [])
+  const id = user ? user.userId : null
+
+  // console.log(whyAuth.firstName)
+
+  const calculation = useMemo(() => id && dispatch(getAUserIdFunction(id)), [])
+
+  // const calculation =
+  useEffect(() => {
+    id && dispatch(getAUserIdFunction(id))
+    id && dispatch(getRoleUser(id))
+
+    localStorage.setItem('authUser', JSON.stringify(getUser))
+  }, [id])
 
   const handleChange = (event) => {
     setAge(event.target.value)
   }
 
   const [anchorElNav, setAnchorElNav] = React.useState(null)
-  const [anchorElUser, setAnchorElUser] = React.useState(null)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
@@ -52,16 +84,7 @@ const Navbar = () => {
     setAnchorElNav(null)
   }
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null)
-  }
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget)
-  }
   const activing = useSelector((state) => state.activ.stateActiv)
-
-  const dispatch = useDispatch()
 
   return (
     <>
@@ -123,7 +146,7 @@ const Navbar = () => {
                   }}
                 >
                   {pages.map((obj) => (
-                    <MenuItem key={obj.page} onClick={handleCloseNavMenu}>
+                    <MenuItem key={obj.link} onClick={handleCloseNavMenu}>
                       <Link to={obj.link}>
                         <Typography textAlign="center">{obj.page}</Typography>
                       </Link>
@@ -161,7 +184,7 @@ const Navbar = () => {
                   <Link to={obj.link}>
                     <Button
                       className={activing ? navStyle.link_activ : navStyle.link}
-                      key={obj.page}
+                      key={obj.link}
                       onClick={handleCloseNavMenu}
                       sx={{ my: 2, color: '#000', display: 'block' }}
                     >
@@ -200,28 +223,62 @@ const Navbar = () => {
                   )}
                 </FormControl>
               </Box>
-              <Link to="/admin">
-                <Box>
-                  <p className={navStyle.user_name}>Садыкова Айканыш</p>
-                  <img
-                    className={navStyle.user_icon}
-                    src={user_icon}
-                    alt="user_icon"
-                  />
-                </Box>
-              </Link>
+              {user ? (
+                <>
+                  {userRole?.name === 'ADMIN' ? (
+                    <Link to="/admin">
+                      <Box>
+                        <div className={navStyle.admin}>
+                          <p className={navStyle.user_name}>Администратор</p>
+                          <img
+                            className={navStyle.user_icon}
+                            src={select_botton}
+                            alt="user_icon"
+                          />
+                        </div>
+                      </Box>
+                    </Link>
+                  ) : (
+                    <Link to="/profile">
+                      <Box>
+                        <div className={navStyle.admin}>
+                          <img
+                            className={navStyle.user_icon}
+                            src={user_icon}
+                            alt="user_icon"
+                          />
 
-              <Box sx={{ flexGrow: 0 }}>
-                <Link to="/loginPage">
-                  <button
-                    className={
-                      activing ? navStyle.button_activ : navStyle.button
-                    }
-                  >
-                    Зарегистрироваться
-                  </button>
-                </Link>
-              </Box>
+                          <p className={navStyle.user_name}>
+                            {userAuth?.firstName}
+                            {userAuth?.lastName}
+                          </p>
+                        </div>
+                      </Box>
+                    </Link>
+                  )}
+                </>
+              ) : (
+                <Box sx={{ flexGrow: 0, display: 'flex' }}>
+                  <Link to="/loginPage">
+                    <button
+                      className={
+                        activing ? navStyle.button_activ : navStyle.button
+                      }
+                    >
+                      Зарегистрироваться
+                    </button>
+                  </Link>
+                  <Link to="/LoginUser">
+                    <button
+                      className={
+                        activing ? navStyle.button_activ : navStyle.button
+                      }
+                    >
+                      Войти
+                    </button>
+                  </Link>
+                </Box>
+              )}
             </Toolbar>
           </Container>
         </AppBar>

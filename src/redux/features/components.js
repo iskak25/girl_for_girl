@@ -13,10 +13,10 @@ export const activingSlice = createSlice({
       state.stateActiv = true
     },
     increment: (state) => {
-      state.value += 1
+      state.step += 1
     },
     decrement: (state) => {
-      state.value -= 1
+      state.step -= 1
     },
     steps: (state, action) => {
       state.step = action.payload
@@ -24,11 +24,6 @@ export const activingSlice = createSlice({
   },
 })
 
-export const {
-  isActiv,
-
-  steps,
-  increment,
-} = activingSlice.actions
+export const { isActiv, decrement, steps, increment } = activingSlice.actions
 
 export default activingSlice.reducer

@@ -1,0 +1,76 @@
+@use '../../../../../assest/mixin/all.scss';
+.content_item {
+  @include all.display(flex, center, space-between);
+  .item_img {
+    width: 75px;
+    height: 105px;
+  }
+  .item_name {
+    @include all.text('Poppins', sans-serif, 'normal', 300, 16px, #252525);
+    margin-left: -120px;
+  }
+  .item_activ {
+    .item_activ_btn {
+      width: 24;
+      height: 24px;
+      border-radius: 100%;
+      background-color: #ff8720;
+      //  border: 0.5px solid #252525;
+    }
+  }
+  .item_size {
+    width: 98px;
+    height: 50px;
+    text-align: center;
+
+    border: 0.5px solid #252525;
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+    select::-ms-expand {
+      display: none;
+    }
+    position: relative;
+    display: inline-block;
+  }
+  .item_size:after {
+    content: url(../../../../../assest/img/icon/select_botton.png);
+    padding: 0 8px;
+    font-size: 12px;
+    position: absolute;
+    right: 25px;
+    top: 19px;
+    z-index: 1;
+    text-align: center;
+    width: 6.11px;
+    height: 10px;
+    pointer-events: none;
+    box-sizing: border-box;
+  }
+  .item_conter {
+    width: 98px;
+    height: 50px;
+    border: 0.5px solid #252525;
+    @include all.displayCenter();
+    .btn_minus {
+      @include all.button(25px, 30px, transparent, 0);
+      border: none;
+      @include all.text('Poppins', sans-serif, 'normal', 300, 22px, #db66e4);
+    }
+    .btn_number {
+      @include all.button(25px, 25px, transparent, 0);
+      border: none;
+      @include all.text('Poppins', sans-serif, 'normal', 300, 16px, #252525);
+    }
+  }
+  .item_price {
+    @include all.text('Poppins', sans-serif, 'normal', 700, 16px, #252525);
+    margin-right: -100px;
+  }
+  .delete_icon {
+    width: 25px;
+    height: 25px;
+  }
+}

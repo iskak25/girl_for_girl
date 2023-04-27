@@ -1,0 +1,53 @@
+@use '../../../../assest/mixin/all.scss' as all;
+.container {
+  margin: 0 auto;
+  width: 1440px;
+  .content_container {
+    .header {
+      .header_basket {
+        @include all.text('Poppins', sans-serif, 'normal', 400, 38px, #000);
+      }
+      .header_line {
+        width: 2000px;
+      }
+    }
+    .content {
+      width: 1200px;
+      .content_h3 {
+        @include all.text('Poppins', sans-serif, 'normal', 300, 20px, #252525);
+      }
+
+      .end {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        .all_price {
+          margin: 32px 0;
+          @include all.text(
+            'Poppins',
+            sans-serif,
+            'normal',
+            300,
+            16px,
+            #252525
+          );
+          .all_price__span {
+            @include all.text(
+              'Poppins',
+              sans-serif,
+              'normal',
+              700,
+              16px,
+              #252525
+            );
+          }
+        }
+        .btn_pay {
+          @include all.button(309px, 50px, #db66e4, 10px);
+          @include all.text('Poppins', sans-serif, 'normal', 600, 16px, #fff);
+          border: none;
+        }
+      }
+    }
+  }
+}
