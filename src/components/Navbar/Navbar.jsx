@@ -265,7 +265,7 @@ const Navbar = () => {
                         activing ? navStyle.button_activ : navStyle.button
                       }
                     >
-                      Зарегистрироваться
+                      Регистрация
                     </button>
                   </Link>
                   <Link to="/LoginUser">

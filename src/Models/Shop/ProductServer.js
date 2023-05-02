@@ -20,9 +20,6 @@ export default class ProductsService {
   static async getAllProduct() {
     return await $api.get(`${Endpoints.ADDPRODUCTS.PRODUCT}`)
   }
-  static async addOrder() {
-    return await $api.post(`${Endpoints.ORDER}`)
-  }
   static async getIdProduct(id) {
     return await $api.get(`${Endpoints.ADDPRODUCTS.PRODUCT}${id}`)
   }
@@ -43,5 +40,11 @@ export default class ProductsService {
     return await $api.put(`${Endpoints.BASKET}`, userData, {
       headers: { 'Content-Type': 'application/json' },
     })
+  }
+  static async addOrder() {
+    return await $api.post(`${Endpoints.ORDER}`)
+  }
+  static async getOrder() {
+    return await $api.get(`${Endpoints.MYORDER}`)
   }
 }

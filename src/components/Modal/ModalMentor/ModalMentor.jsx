@@ -2,15 +2,24 @@ import React from 'react'
 import modalStyle from '../ModalMentor/ModalMentor.module.scss'
 
 import {
-  mentor_img,
   whatsapp_mentor,
   facebook_mentor,
   instagram_mentor,
   close_icon,
-  edit_icon,
+  delete_icon,
+  edit_pen_icon,
 } from '../../../assest/img'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteMentor } from '../../../redux/features/mentorCrud/mentorSlice'
 
 const ModalMentor = ({ activ, setActiv }) => {
+  const dispatch = useDispatch()
+  const idMentor = useSelector((state) => state.mentor.getMentor)
+  const userRole = useSelector((state) => state.getIdUser.role)
+  function handleDelete(id) {
+    dispatch(deleteMentor(id))
+    setActiv(false)
+  }
   return (
     <>
       <div
@@ -33,48 +42,56 @@ const ModalMentor = ({ activ, setActiv }) => {
           </div>
           <div className={modalStyle.item}>
             <div className={modalStyle.item_list}>
-              <img className={modalStyle.mentor_img} src={mentor_img} alt="" />
-              <div className={modalStyle.mentor_admin}>
-                {/* <img
-                  onClick={() => navigate(`/editMentor`)}
-                  className={modalStyle.mentor_admin_icon}
-                  src={edit_icon}
-                  alt="edit_icon"
-                /> */}
+              <img
+                className={modalStyle.mentor_img}
+                src={idMentor?.image_url}
+                alt=""
+              />
+              {userRole?.name === 'ADMIN' ? (
+                <div className={modalStyle.mentor_admin}>
+                  <img
+                    className={modalStyle.mentor_admin_icon}
+                    src={edit_pen_icon}
+                    alt="edit_icon"
+                  />
+                  <img
+                    onClick={() => handleDelete(idMentor?.id)}
+                    className={modalStyle.mentor_admin_icon}
+                    src={delete_icon}
+                    alt="edit_icon"
+                  />
+                </div>
+              ) : (
+                ''
+              )}
+            </div>
+            <div className={modalStyle.item_list}>
+              <h3 className={modalStyle.mentor_name}>{idMentor?.full_name}</h3>
+              <p className={modalStyle.mentor_deck}>{idMentor?.full_info}</p>
+            </div>
+            <div className={modalStyle.item_list}>
+              <a href={idMentor?.facebook}>
                 <img
-                  className={modalStyle.mentor_img_admin_icon}
-                  src={edit_icon}
-                  alt="edit_icon"
+                  className={modalStyle.mentor_icon}
+                  src={facebook_mentor}
+                  alt=""
                 />
-              </div>
-            </div>
-            <div className={modalStyle.item_list}>
-              <h3 className={modalStyle.mentor_name}>Жылдыз Капарова</h3>
-              <p className={modalStyle.mentor_deck}>
-                Выпускница программы Executive MBA Московской бизнес-школы
-                СКОЛКОВО.Создатель бизнес - сообщества выпускников Skolkovo в
-                Казахстане. В настоящий момент проходит обучение в Германии на
-                Executive Coaching. Аселя любит раскрывать потенциал и
-                мотивировать людей для достижения поставленных целей.Мама двоих
-                дочерей.
-              </p>
-            </div>
-            <div className={modalStyle.item_list}>
-              <img
-                className={modalStyle.mentor_icon}
-                src={facebook_mentor}
-                alt=""
-              />
-              <img
-                className={modalStyle.mentor_icon}
-                src={instagram_mentor}
-                alt=""
-              />
-              <img
-                className={modalStyle.mentor_icon}
-                src={whatsapp_mentor}
-                alt=""
-              />
+              </a>
+
+              <a href={idMentor?.instagram}>
+                <img
+                  className={modalStyle.mentor_icon}
+                  src={instagram_mentor}
+                  alt=""
+                />
+              </a>
+              <a href={idMentor?.whatsapp}>
+                <img
+                  className={modalStyle.mentor_icon}
+                  src={whatsapp_mentor}
+                  alt=""
+                />
+              </a>
             </div>
           </div>
         </div>

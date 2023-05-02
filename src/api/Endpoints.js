@@ -26,6 +26,9 @@ const Endpoints = {
   QUETIONS: '/questions',
   ROLE: '/role/',
   ORDER: '/order',
+  MENTOR: '/speakers/',
+  MENTORADDFILE: '/image/upload/speaker/',
+  MYORDER: '/order/myOrders',
 }
 
 export default Endpoints

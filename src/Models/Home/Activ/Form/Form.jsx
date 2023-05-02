@@ -67,7 +67,6 @@ const Form = () => {
                 type="number"
                 className={formStyle.content_text__input}
               />
-              /
             </div>
           </div>
           <div className={formStyle.button}>

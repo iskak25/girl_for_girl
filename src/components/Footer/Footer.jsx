@@ -25,24 +25,24 @@ const Footer = () => {
           <div className={footerStyle.right}>
             <div className={footerStyle.right_content}>
               <div className={footerStyle.text}>
-                <Link to="">
+                <Link to="/mentor">
                   <p className={footerStyle.text_p}>Менторская программа</p>
                 </Link>
-                <Link to="">
+                <Link to="/trainings">
                   <p className={footerStyle.text_p}>Тренинги</p>
                 </Link>
-                <Link to="">
+                <Link to="/shop">
                   <p className={footerStyle.text_p}>Магазин</p>
                 </Link>
-                <Link to="">
+                <Link to="/conferences">
                   <p className={footerStyle.text_p}>Конференции</p>
                 </Link>
-                <Link to="">
+                <Link to="/videolessons">
                   <p className={footerStyle.text_p}>Видеоуроки</p>
                 </Link>
               </div>
               <div className={footerStyle.right_logo}>
-                <a href="*">
+                <a href="">
                   <img
                     className={footerStyle.right_logo_item}
                     src={facebook}

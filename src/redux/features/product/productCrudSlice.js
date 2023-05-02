@@ -76,7 +76,7 @@ export const DeleteProduct = createAsyncThunk(
 )
 
 export const productSlice = createSlice({
-  name: 'crudMentor',
+  name: 'productMentor',
   initialState,
   reducers: {
     addFile: (state, action) => {

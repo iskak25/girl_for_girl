@@ -4,6 +4,7 @@ import adminStyle from './AdminSteps.module.scss'
 import { steps } from '../../../../redux/features/components'
 import { useDispatch, useSelector } from 'react-redux'
 import { people, setting, user } from '../../../../assest/img'
+import UserAvatar from '../../../Profile/Profile/UserAvatar/UserAvatar'
 
 const AdminSteps = () => {
   const dispatch = useDispatch()

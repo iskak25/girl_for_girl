@@ -4,18 +4,22 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 44px;
+  .item_isActiv {
+    position: static;
+  }
   .item {
     .item_header {
       position: relative;
+
       .discount {
-        position: absolute;
-        width: 87px;
-        height: 29px;
-        left: 0px;
-        top: 0px;
-        background: #c192ee;
-        border-radius: 10px;
-        @include all.displayCenter();
+        // position: absolute;
+        // width: 87px;
+        // height: 29px;
+        // left: 0px;
+        // top: 0px;
+        // background: #c192ee;
+        // border-radius: 10px;
+        // @include all.displayCenter();
 
         .discount_p {
           @include all.text(
@@ -31,6 +35,9 @@
       .item_img {
         width: 296px;
         height: 414px;
+      }
+      .list_isActiv {
+        position: static;
       }
       .list {
         position: absolute;

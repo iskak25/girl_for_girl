@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addOrder, getBasket } from '../../../../redux/features/product/basket'
+import {
+  addOrder,
+  getBasket,
+  getOrder,
+} from '../../../../redux/features/product/basket'
 import basketStyle from './Basket.module.scss'
 import BasketCart from './BasketCart/BasketCart'
 const Basket = () => {
@@ -19,6 +23,13 @@ const Basket = () => {
   useEffect(() => {
     dispatch(getBasket())
   }, [])
+
+  // const dispatch = useDispatch()
+  const getOrders = useSelector((state) => state.basket.getOrder)
+  useEffect(() => {
+    dispatch(getOrder())
+  }, [])
+  console.log(getOrders)
 
   return (
     <>

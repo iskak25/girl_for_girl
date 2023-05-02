@@ -11,7 +11,6 @@ import modalShopStyle from './ModalShop.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import SeletonModalShop from './SeletonModalShop'
 import { addBasket } from '../../../redux/features/product/basket'
-import { useEffect } from 'react'
 
 const ModalShop = ({ activ, setActiv }) => {
   let userData = { productId: 0, sizeId: 1, amount: 0 }
@@ -26,8 +25,6 @@ const ModalShop = ({ activ, setActiv }) => {
       </h2>
     )
   }
-
-  console.log(userData)
 
   return (
     <>
@@ -69,8 +66,6 @@ const ModalShop = ({ activ, setActiv }) => {
                 </p>
                 <select
                   className={modalShopStyle.text_size}
-                  // onChange={(e) => setRegion_id(e.target.value)}
-                  // value={region_id}
                   name="cars"
                   id="cars"
                 >

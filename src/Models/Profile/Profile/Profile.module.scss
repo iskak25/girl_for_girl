@@ -2,34 +2,37 @@
 .container {
   .content {
     width: 570px;
-    .header {
-      @include all.displayCenter();
-      flex-direction: column;
-      .header_h3 {
-        @include all.text('Poppins', sans-serif, 'normal', 400, 30px, #000);
-      }
-      .header_img {
-        width: 150px;
-        height: 150px;
-      }
-      .header_name {
-        @include all.text('Poppins', sans-serif, 'normal', 700, 28px, #db66e4);
-      }
-      .header_plece {
-        @include all.text(
-          'Poppins',
-          sans-serif,
-          'normal',
-          300,
-          24px,
-          rgba(0, 0, 0, 0.6)
-        );
-      }
-    }
+
     .all_buttons {
       margin-top: 20px;
       @include all.displayCenter();
       flex-direction: column;
+      .red_buttons {
+        border-radius: 10px;
+        background-color: #f4f4f0;
+        border: 2px solid #c72d2d;
+        margin-bottom: 20px;
+        padding: 0 30px 0 20px;
+        @include all.display(flex, center, space-between);
+        width: 436px;
+        height: 50px;
+        @include all.displayItems(center);
+        .buttons_left {
+          display: flex;
+          justify-content: flex-start;
+          //  @include all.displayCenter();
+
+          .buttons_img {
+          }
+          .buttons_p {
+            margin: 0 0 0 10px;
+            @include all.text('Poppins', sans-serif, 'normal', 400, 15px, #000);
+          }
+        }
+        .buttons_vector {
+          @include all.display(flex, center, flex-end);
+        }
+      }
       .buttons {
         border-radius: 10px;
         background-color: #f0f0f4;

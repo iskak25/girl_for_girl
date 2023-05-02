@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { mentor, shop, trenink } from '../../../../assest/img'
 import contentStyle from './Content.module.scss'
 
@@ -24,7 +25,10 @@ const Content = () => {
                 alt="mentor"
               />
             </div>
-            <button className={contentStyle.item_button}>подробнее</button>
+
+            <Link to="/mentor">
+              <button className={contentStyle.item_button}>подробнее</button>
+            </Link>
           </div>
 
           <div style={{ background: '#FFC8DD' }} className={contentStyle.item}>
@@ -47,7 +51,9 @@ const Content = () => {
                 allowfullscreen
               ></iframe>
             </div>
-            <button className={contentStyle.item_button}>подробнее</button>
+            <Link to="/VideolessonsPages">
+              <button className={contentStyle.item_button}>подробнее</button>
+            </Link>
           </div>
           <div style={{ background: '#FFC8DD' }} className={contentStyle.item}>
             <div className={contentStyle.item_list}>
@@ -63,7 +69,9 @@ const Content = () => {
                 alt="trenink"
               />
             </div>
-            <button className={contentStyle.item_button}>подробнее</button>
+            <Link to="/trainings">
+              <button className={contentStyle.item_button}>подробнее</button>
+            </Link>
           </div>
           <div style={{ background: '#D0F4DE' }} className={contentStyle.item}>
             <div className={contentStyle.item_list}>
@@ -75,7 +83,9 @@ const Content = () => {
               </div>
               <img className={contentStyle.item_img} src={shop} alt="shop" />
             </div>
-            <button className={contentStyle.item_button}>подробнее</button>
+            <Link to="/shop">
+              <button className={contentStyle.item_button}>подробнее</button>
+            </Link>
           </div>
         </div>
       </div>

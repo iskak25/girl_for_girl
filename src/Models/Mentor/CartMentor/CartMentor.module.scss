@@ -1,0 +1,38 @@
+@use '../../../assest/mixin/all.scss' as all;
+
+.no_item {
+  position: static;
+}
+.item {
+  .list {
+    .mentor_img {
+      width: 678px;
+      height: 484px;
+      position: relative;
+      left: 0;
+      right: 0;
+    }
+    position: absolute;
+    width: 100%;
+    // background-image: url('../../../assest/img/photo/0.0.jpg');
+    width: 678px;
+    height: 484px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    .listOne {
+      margin-left: 25px;
+      margin-top: 31px;
+      @include all.text('Poppins', sans-serif, 'normal', 400, 2em, #fbfbfb);
+    }
+
+    .listTwo {
+      @include all.displayCenter();
+      .listTwo_btn {
+        @include all.text('Poppins', sans-serif, 'normal', 500, 1em, #fbfbfb);
+        @include all.button(217px, 56px, #c192ee, 10px);
+        border: none;
+      }
+    }
+  }
+}

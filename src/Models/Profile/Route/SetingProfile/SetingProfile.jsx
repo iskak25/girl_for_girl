@@ -1,7 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import setingStyle from './SetingProfile.module.scss'
 
 const SetingProfile = () => {
+  const getUser = useSelector((state) => state.getIdUser.userId)
+  console.log(getUser, 'user')
+
   return (
     <>
       <div>
@@ -19,12 +23,14 @@ const SetingProfile = () => {
             </div>
             <div className={setingStyle.item_input}>
               <input
+                value={getUser?.firstName}
                 type="text"
                 name=""
                 placeholder="Имя"
                 className={setingStyle.input_small}
               />
               <input
+                value={getUser?.lastName}
                 type="text"
                 name=""
                 placeholder="Фамилия"
@@ -33,6 +39,7 @@ const SetingProfile = () => {
             </div>
             <div className={setingStyle.item_input}>
               <input
+                value={getUser?.phoneNumber}
                 type="text"
                 name=""
                 placeholder="Номер телефона"
@@ -47,6 +54,7 @@ const SetingProfile = () => {
                 className={setingStyle.input_small}
               />
               <input
+                value={getUser?.email}
                 type="text"
                 name=""
                 placeholder="e-mail"

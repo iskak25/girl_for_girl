@@ -23,7 +23,6 @@ const MainShop = () => {
   if (isLoading) {
     return skeletons
   }
-  console.log(modalActiv)
 
   return (
     <>
@@ -56,7 +55,11 @@ const MainShop = () => {
             </div>
           </Link>
         </div>
-        {isLoading ? skeletons : <ProductCart setModalActiv={setModalActiv} />}
+        {isLoading ? (
+          skeletons
+        ) : (
+          <ProductCart modalActiv={modalActiv} setModalActiv={setModalActiv} />
+        )}
       </div>
     </>
   )

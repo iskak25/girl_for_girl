@@ -50,13 +50,15 @@ import delete_icon from './icon/delete.svg'
 import select_botton from './icon/select_botton.png'
 import conferencesHeader_img from './photo/ConferencesHeader.png'
 import time from './icon/time.svg'
-import avatar from './icon/Avatar.png'
 import coffee from './icon/coffee.svg'
 import vector_profile from './icon/vector_profile.png'
 import file_icon from './icon/file_icon.svg'
 import setting_icon_violet from './icon/setting_icon_violet.svg'
+import avatar_mentor from './photo/avatar_mentor.jpg'
+import avatar from './photo/avatar.jpg'
 
 export {
+  avatar_mentor,
   file_icon,
   setting_icon_violet,
   vector_profile,

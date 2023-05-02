@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import ProductsService from '../../../Models/Shop/ProductServer'
 
 const initialState = {
-  order: null,
+  getOrder: null,
+  addOrder: null,
   amountProduct: null,
   allProduct: null,
   productData: null,
@@ -12,25 +13,6 @@ const initialState = {
   message: '',
 }
 
-// export const getRegion = createAsyncThunk(
-//   'auth/getRegion',
-//   async (thunkAPI) => {
-//     try {
-//       console.log('get Region')
-//       return await authService.getRegion()
-//     } catch (error) {
-//       const message =
-//         (error.response &&
-//           error.response.data &&
-//           error.response.data.message) ||
-//         error.message ||
-//         error.toString()
-//       return thunkAPI.rejectWithValue(message)
-//     }
-//   },
-// )
-
-// addBasket
 export const addBasket = createAsyncThunk(
   'getbasket/exra',
   async (productData, thunkAPI) => {
@@ -77,20 +59,8 @@ export const getBasket = createAsyncThunk('basket/exra', async (thunkAPI) => {
   }
 })
 
-export const addOrder = createAsyncThunk('addorder/exra', async (thunkAPI) => {
-  try {
-    return await ProductsService.addOrder()
-  } catch (error) {
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString()
-    return thunkAPI.rejectWithValue(message)
-  }
-})
-
 export const deleteBasket = createAsyncThunk(
-  'basket/exra',
+  'basketdelete/exra',
   async (id, thunkAPI) => {
     try {
       return await ProductsService.deleteBasket(id)
@@ -105,6 +75,30 @@ export const deleteBasket = createAsyncThunk(
     }
   },
 )
+
+export const addOrder = createAsyncThunk('addorder/exra', async (thunkAPI) => {
+  try {
+    return await ProductsService.addOrder()
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString()
+    return thunkAPI.rejectWithValue(message)
+  }
+})
+
+export const getOrder = createAsyncThunk('getOrder/exra', async (thunkAPI) => {
+  try {
+    return await ProductsService.getOrder()
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString()
+    return thunkAPI.rejectWithValue(message)
+  }
+})
 
 export const basketSlice = createSlice({
   name: 'basket',
@@ -162,19 +156,34 @@ export const basketSlice = createSlice({
         state.message = action.payload
         state.amountProduct = null
       })
+
       .addCase(addOrder.pending, (state) => {
         state.isLoading = true
       })
       .addCase(addOrder.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.order = action.payload
+        state.addOrder = action.payload
       })
       .addCase(addOrder.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
-        state.order = null
+        state.addOrder = null
+      })
+      .addCase(getOrder.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getOrder.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.getOrder = action.payload.data
+      })
+      .addCase(getOrder.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+        state.getOrder = null
       })
   },
 })

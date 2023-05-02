@@ -8,9 +8,12 @@ import {
   GetIdProduct,
 } from '../../../../redux/features/product/productCrudSlice'
 
-const ProductCart = ({ setModalActiv }) => {
+const ProductCart = ({ setModalActiv, modalActiv }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  const userRole = useSelector((state) => state.getIdUser.role)
+
   const { allProducts } = useSelector((state) => state.product)
   function idProduct(id) {
     dispatch(GetIdProduct(id))
@@ -24,7 +27,12 @@ const ProductCart = ({ setModalActiv }) => {
     <>
       <div className={productCartStyle.content}>
         {allProducts?.map((item) => (
-          <div key={item.id} className={productCartStyle.item}>
+          <div
+            key={item.id}
+            className={
+              modalActiv ? productCartStyle.item_isActiv : productCartStyle.item
+            }
+          >
             <div className={productCartStyle.item_header}>
               <img
                 onClick={() => idProduct(item.id)}
@@ -32,7 +40,13 @@ const ProductCart = ({ setModalActiv }) => {
                 src={item.imageUrl}
                 // alt={item.imageUrl}
               />
-              <div className={productCartStyle.list}>
+              <div
+                className={
+                  modalActiv
+                    ? productCartStyle.list_isActiv
+                    : productCartStyle.list
+                }
+              >
                 <div className={productCartStyle.text}>
                   <div className={productCartStyle.left}>
                     <h4 className={productCartStyle.text_h4}>{item.title}</h4>
@@ -42,20 +56,24 @@ const ProductCart = ({ setModalActiv }) => {
                       </p>
                     </div>
                   </div>
-                  <div className={productCartStyle.right}>
-                    <img
-                      onClick={() => editProduct(item.id)}
-                      className={productCartStyle.delete_icon}
-                      src={edit_pen_icon}
-                      alt="delete_icon"
-                    />
-                    <img
-                      onClick={() => dispatch(DeleteProduct(item.id))}
-                      className={productCartStyle.edit_icon}
-                      src={delete_icon}
-                      alt="delete_icon"
-                    />
-                  </div>
+                  {userRole?.name === 'ADMIN' ? (
+                    <div className={productCartStyle.right}>
+                      <img
+                        onClick={() => editProduct(item.id)}
+                        className={productCartStyle.delete_icon}
+                        src={edit_pen_icon}
+                        alt="delete_icon"
+                      />
+                      <img
+                        onClick={() => dispatch(DeleteProduct(item.id))}
+                        className={productCartStyle.edit_icon}
+                        src={delete_icon}
+                        alt="delete_icon"
+                      />
+                    </div>
+                  ) : (
+                    ''
+                  )}
                 </div>
               </div>
             </div>

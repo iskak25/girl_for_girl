@@ -2,27 +2,38 @@ import React from 'react'
 import { Box, Button, Grid, Stack, TextField } from '@mui/material'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addMentors } from '../../../redux/features/mentorCrud/mentorSlice'
+import { addNewMentor } from '../../../redux/features/mentorCrud/mentorSlice'
 
 const AddMentor = () => {
-  const [product, setProduct] = useState({
-    photo: '',
-    name: '',
-    description: '',
+  const [mentor, setMentor] = useState({
+    full_name: '',
+    full_info: '',
+    instagram: '',
+    whatsapp: '',
+    facebook: '',
   })
   const dispatch = useDispatch()
   const [selectFile, setSelectFile] = useState(null)
   const posts = useSelector((state) => state.mentor.mentors)
 
-  const handleInput = (e, product, setProduct) => {
+  const handleInput = (e, mentor, setMentor) => {
     let obj = {
-      ...product,
+      ...mentor,
       [e.target.name]: e.target.value,
     }
-    setProduct(obj)
+    setMentor(obj)
   }
   const handleChange = (e) => {
     setSelectFile(e.target.files[0])
+  }
+
+  function addData() {
+    const formData = new FormData()
+    formData.append('file', selectFile)
+
+    const data = { mentor, formData }
+
+    dispatch(addNewMentor(data))
   }
   const handleDeleteFile = () => {
     setSelectFile(null)
@@ -49,31 +60,49 @@ const AddMentor = () => {
         >
           <form>
             <TextField
-              value={product.photo}
+              value={mentor.full_name}
               fullWidth
               id="outlined-basic"
-              label="ФОТО"
+              label="ФИО"
               variant="outlined"
-              name="photo"
-              onChange={(e) => handleInput(e, product, setProduct)}
+              name="full_name"
+              onChange={(e) => handleInput(e, mentor, setMentor)}
             />
             <TextField
-              value={product.name}
-              fullWidth
-              id="outlined-basic"
-              label="NAME"
-              variant="outlined"
-              name="name"
-              onChange={(e) => handleInput(e, product, setProduct)}
-            />
-            <TextField
-              value={product.description}
+              value={mentor.full_info}
               fullWidth
               id="outlined-basic"
               label="DESCRIPTION"
               variant="outlined"
-              name="description"
-              onChange={(e) => handleInput(e, product, setProduct)}
+              name="full_info"
+              onChange={(e) => handleInput(e, mentor, setMentor)}
+            />
+            <TextField
+              value={mentor.instagram}
+              fullWidth
+              id="outlined-basic"
+              label="instagram"
+              variant="outlined"
+              name="instagram"
+              onChange={(e) => handleInput(e, mentor, setMentor)}
+            />
+            <TextField
+              value={mentor.whatsapp}
+              fullWidth
+              id="outlined-basic"
+              label="whatsapp номер"
+              variant="outlined"
+              name="whatsapp"
+              onChange={(e) => handleInput(e, mentor, setMentor)}
+            />
+            <TextField
+              value={mentor.facebook}
+              fullWidth
+              id="outlined-basic"
+              label="facebook"
+              variant="outlined"
+              name="facebook"
+              onChange={(e) => handleInput(e, mentor, setMentor)}
             />
             <Button
               variant="contained"
@@ -121,9 +150,7 @@ const AddMentor = () => {
                 variant="outlined"
                 size="large"
                 fullWidth
-                onClick={() => {
-                  dispatch(addMentors(product))
-                }}
+                onClick={addData}
               >
                 ADD MENTOR
               </Button>
