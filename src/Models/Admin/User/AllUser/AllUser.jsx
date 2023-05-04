@@ -20,7 +20,7 @@ const AllUser = () => {
 
   function editUser(id) {
     dispatch(getAUserIdFunction(id))
-    navigate(`/editUser/${id}`)
+    navigate(`/editUser/${id}`)  
   }
 
   useEffect(() => {

@@ -10,7 +10,7 @@ const HustoryProfile = () => {
   useEffect(() => {
     dispatch(getOrder())
   }, [])
-  console.log(getOrders)
+  console.log(   )
 
   return (
     <>

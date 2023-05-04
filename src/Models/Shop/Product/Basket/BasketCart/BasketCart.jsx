@@ -13,7 +13,6 @@ const BasketCart = ({ id, product }) => {
   const [amount, setAmount] = useState(0)
   const [productId, setProductId] = useState(0)
   const [sizeId, setSizeId] = useState(1)
-  const userRole = useSelector((state) => state.getIdUser.role)
 
   function plusCount() {
     setAmount(amount + 1)

@@ -72,8 +72,7 @@ const ModalShop = ({ activ, setActiv }) => {
                   {idProduct?.sizes.map((item) => (
                     <option
                       value={item.id}
-                      // selected={item?.id}
-                      // onChange={(e) => setRegion_id(e.target.value)}
+                    
                     >
                       {item.name}
                     </option>
