@@ -1,46 +1,54 @@
-# Getting Started with Create React App and Redux
+## Girl for girl
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+Girl for girl — websites that aim to expand the rights and opportunities of young girls from different regions. 
+Automation of communication between mentors and mentees. Viewing educational video courses on the website. Submitting applications for trainings, mentorship programs, and conferences. Ordering branded merchandise on the website
 
-## Available Scripts
+<!-- ABOUT THE PROJECT -->
+![Screenshot (9)](https://github.com/iskak25/girl_for_girl/assets/50579392/c7587896-7542-4957-8d8f-0b453166de47)
+![Screenshot (8)](https://github.com/iskak25/girl_for_girl/assets/50579392/1a8ee801-f603-468f-9c10-d17d66fd320f)
+![Screenshot (7)](https://github.com/iskak25/girl_for_girl/assets/50579392/9d4a62bc-ab86-4211-97f8-8e2cb4905346)
 
-In the project directory, you can run:
 
-### `npm start`
+### Instalationn
+- React
+- Redux-toollkit
+- React-Router 
+- Axois
+- Material UI 
+- SASS
+- Formik
+- React-toastify
+- Yup
+- React-flags-select
+- react-content-loader
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- ### Конфигурация
+- CRA 
+- npm -->
 
-### `npm test`
+### Install
+Use the [git](https://git-scm.com/downloads) to clone the project to your local machine.
+```sh
+$ git clone https://github.com/malikimansaparov/greenwich-admin_panel-.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Navigate to the extracted folder
+```sh 
+cd Greenwich-admin_panel
+```
 
-### `npm run build`
+Install the dependencies and modules
+```sh
+$ npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Usage
+```sh
+$ npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## License
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/iskak25/girl_for_girl/blob/main/LICENCE)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Based on [Greenwich_admin_panel](https://github.com/iskak25/girl_for_girl)
