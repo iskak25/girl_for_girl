@@ -1,17 +1,31 @@
 import * as React from 'react'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect, useMemo} from "react";
+import {getAUserIdFunction, getRoleUser} from "../../redux/features/auth/GetUserIdSlice";
+import {Link} from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu'
-import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
-import MenuItem from '@mui/material/MenuItem'
-import AdbIcon from '@mui/icons-material/Adb'
+import {
+    AppBar,
+    Box,
+    Toolbar,
+    IconButton,
+    Typography,
+    Menu,
+    Container,
+    Button,
+    MenuItem,
+    FormControl,
+    Select,
+} from '@mui/material'
+import navStyle from './Navbar.module.scss'
+import {
+    logo_blaclk,
+    logo_white,
+    flag_kyrgyzstan,
+    user_icon,
+    FlagRuss,
+    select_botton,
+} from '../../assest/img'
 
 const pages = [
   { page: 'Главная', link: '/' },
