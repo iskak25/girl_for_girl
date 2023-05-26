@@ -53,7 +53,6 @@ const Navbar = () => {
   }, [])
   const id = user ? user.userId : null
 
-  // console.log(whyAuth.firstName)
 
   const calculation = useMemo(() => id && dispatch(getAUserIdFunction(id)), [])
 

@@ -14,15 +14,6 @@ const EditUser = () => {
     (state) => state.getIdUser,
   )
   const [userData, setUserData] = useState([])
-
-  // const handleInput = (e, product, setUserData) => {
-  //   let obj = {
-  //     ...product,
-  //     [e.target.name]: e.target.value,
-  //   }
-  //   setUserData(obj)
-  // }
-
   const userID = useSelector((state) => state.getIdUser.userId)
 
   useEffect(() => {

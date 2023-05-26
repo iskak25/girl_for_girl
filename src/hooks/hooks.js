@@ -2,11 +2,8 @@ import { useDispatch } from 'react-redux'
 import { decrement, increment, steps } from '../redux/features/components'
 
 function useSteps(step) {
-  const dispatch = useDispatch()
-  //   if (fund == 'plus') {
+  const dispatch = useDispatch();
   dispatch(steps(step))
-  //   } else if (fund == 'mimus') {
-  //  dispatch(decrement())
-  //   }
+
 }
 export default useSteps
