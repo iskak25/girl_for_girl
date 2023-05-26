@@ -6,7 +6,6 @@ Automation of communication between mentors and mentees. Viewing educational vid
 <!-- ABOUT THE PROJECT -->
 ![Screenshot (9)](https://github.com/iskak25/girl_for_girl/assets/50579392/c7587896-7542-4957-8d8f-0b453166de47)
 ![Screenshot (8)](https://github.com/iskak25/girl_for_girl/assets/50579392/1a8ee801-f603-468f-9c10-d17d66fd320f)
-![Screenshot (7)](https://github.com/iskak25/girl_for_girl/assets/50579392/9d4a62bc-ab86-4211-97f8-8e2cb4905346)
 
 
 ### Instalationn
@@ -22,20 +21,15 @@ Automation of communication between mentors and mentees. Viewing educational vid
 - React-flags-select
 - react-content-loader
 
-
-<!-- ### Конфигурация
-- CRA 
-- npm -->
-
 ### Install
 Use the [git](https://git-scm.com/downloads) to clone the project to your local machine.
 ```sh
-$ git clone https://github.com/malikimansaparov/greenwich-admin_panel-.git
+$ git clone https://github.com/iskak25/girl_for_girl.git
 ```
 
 Navigate to the extracted folder
 ```sh 
-cd Greenwich-admin_panel
+cd girl_for_girl
 ```
 
 Install the dependencies and modules
@@ -51,4 +45,4 @@ $ npm start
 ## License
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/iskak25/girl_for_girl/blob/main/LICENCE)
 
-Based on [Greenwich_admin_panel](https://github.com/iskak25/girl_for_girl)
+Based on [girl_for_girl](https://github.com/iskak25/girl_for_girl)
